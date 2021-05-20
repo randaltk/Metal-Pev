@@ -15,7 +15,7 @@ export default function Home() {
         <div className={styles.linearGradient}>
           <div className={styles.headerNavigation}>
             <div className={styles.logoMetalPev}>
-              <img src="/logo.png" />
+              <img src="/logo-metal-pev.png" />
             </div>
 
             <div className={styles.headerMenu}>
@@ -30,7 +30,7 @@ export default function Home() {
                     <a href="#sobre">Sobre</a>
                   </li>
                   <li className={styles.navItem}>
-                    <a href="#beneficios">Empresa</a>
+                    <a href="#empresa">Empresa</a>
                   </li>
                   <li className={styles.navItem}>
                     <a href="#beneficios">Serviços</a>
@@ -87,6 +87,39 @@ export default function Home() {
               <li className={styles.topic}>Adequação as normas da NP.</li>
               <li className={styles.topic}>
                 Análise e coleta de dados sobre os pontos de risco
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.sessaoSobre}>
+        <a id="empresa" name="empresa"></a>
+        <div className={styles.contentBanner}>
+          <img src="/section-sobre.jpg" alt="operador" />
+        </div>
+        <div className={styles.contentPresentation}>
+          <div className={styles.sessaoContent}>
+            <div className={styles.borderStyle}></div>
+            <h2 className={styles.title}>
+              Fazemos reformas de equipamentos,{" "}
+              <span>instalacões industriais, escadas,</span>
+              <span>mezaninos e muito mais !</span>
+            </h2>
+            <p className={styles.description}>
+              Com a Metal Pev você gerencia os serviços de manutenção de
+              instalacoes industrias de forma prática e ágil, nossas reformas
+              são intuitivas e abrangentes e irão te ajudar a alcançar reduções
+              nos custos, diminuição dos índices de falhas, cumprimento dos
+              prazos para atendimento e vários outros Benefícios que você verá
+              em seguida.
+            </p>
+
+            <ul className={styles.detail}>
+              <li className={styles.topic}>Adequação as normas da NR-13</li>
+              <li className={styles.topic}>Adequação as normas da NP.</li>
+              <li className={styles.topic}>
+                Análise e coleta de dados sobre os pontos de risco.
               </li>
             </ul>
           </div>
