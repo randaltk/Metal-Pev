@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.sessaoSobre}>
+      {/* <section className={styles.sessaoSobre}>
         <a id="empresa" name="empresa"></a>
         <div className={styles.contentBanner}>
           <img src="/section-sobre.jpg" alt="operador" />
@@ -124,7 +124,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
