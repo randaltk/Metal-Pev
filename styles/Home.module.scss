@@ -1,0 +1,167 @@
+.headerStyle {
+  background-image: url(../public/header.jpg);
+  background-position: center top 22%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+// .flexContent {
+//   background-color: red;
+// }
+.linearGradient {
+  height: 26.804rem;
+  width: 100%;
+  background: linear-gradient(
+    360deg,
+    rgba(0, 0, 0, 0.5) -16.9%,
+    rgba(0, 151, 195, 0) 100%
+  );
+}
+
+.logoMetalPev {
+  max-width: 170px;
+  margin-left: 4rem;
+  @media only screen and (max-width: 800px) {
+    margin-left: 0.2rem;
+  }
+}
+.logoMetalPev img {
+  width: 100%;
+}
+.headerNavigation {
+  padding: 0.5rem;
+  display: flex;
+  background-color: #2e353d93;
+}
+
+.headerMenu {
+  flex: 1;
+  text-align: right;
+
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+.menuIconToggleMenu {
+  display: none;
+
+  @media only screen and (max-width: 800px) {
+    display: initial;
+    padding: 4px 7px;
+    font-size: 2.5em;
+    font-weight: bold;
+    &::hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.mobileHidden {
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+.navItem {
+  color: white;
+  text-decoration: none;
+  margin: auto;
+
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 15px;
+  text-shadow: -0.5px 0 0.1px black, 0 0.5px 0.1px black, 0.5px 0 0.1px black,
+    0 -0.5px 0.1px black;
+}
+
+.headerContent {
+  height: 100%;
+  display: grid;
+  text-shadow: -0.5px 0 0.1px black, 0 0.5px 0.1px black, 0.5px 0 0.1px black,
+    0 -0.5px 0.1px black;
+}
+.textCard {
+  max-width: 100%;
+  margin: 3rem 8rem;
+  @media only screen and (max-width: 800px) {
+    margin: 2rem 2rem;
+  }
+}
+.title {
+  font-weight: bold;
+  font-size: 2.25rem;
+  margin: auto;
+  word-wrap: break-word;
+}
+.description {
+  text-align: start;
+  margin-top: 20px;
+}
+.btnDefault {
+  font-size: 16px;
+  width: 270px;
+  line-height: 1.5rem;
+  background-image: linear-gradient(to right, #8a201af5, #8a1f1a);
+  padding: 10px 26px;
+  color: white;
+  border-radius: 8rem;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 30px;
+  outline: none;
+
+  &:hover {
+    background-image: linear-gradient(to right, #8a201ae0, #8a201ae1);
+    cursor: pointer;
+  }
+
+  img {
+    margin-left: 0.5rem;
+  }
+}
+.sessaoSobre {
+  margin: 2rem 8rem;
+  @media only screen and (max-width: 800px) {
+    margin: 2rem 2rem;
+  }
+}
+.contentPresentation {
+  max-width: initial;
+  padding-right: 0px;
+}
+.sessaoContent {
+  .title {
+    word-wrap: inherit;
+  }
+  @media only screen and (max-width: 800px) {
+    margin-left: initial;
+  }
+}
+.contentBanner {
+  float: right;
+  margin-bottom: 3em;
+  margin-left: 3em;
+  max-width: 35%;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    max-width: 100%;
+  }
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+.detail {
+  margin-top: 20px;
+}
+.topic {
+  margin-top: 20px;
+  margin-left: -20px;
+}
