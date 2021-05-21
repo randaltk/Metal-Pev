@@ -139,6 +139,7 @@
 }
 .sessaoSobre {
   margin: 2rem 8rem;
+
   @media only screen and (max-width: 800px) {
     margin: 2rem 2rem;
   }
@@ -181,8 +182,13 @@
 
 .sessaoEmpresa {
   margin: 4rem 8rem;
+  height: 35rem;
   @media only screen and (max-width: 800px) {
     margin: 2rem 2rem;
+    height: auto;
+  }
+  @media only screen and (max-width: 1200px) {
+    height: auto;
   }
 }
 .contentBannerEmpresa {
@@ -197,7 +203,7 @@
   img {
     max-width: 100%;
   }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1200px) {
     margin-right: 5.2rem;
   }
   @media only screen and (max-width: 600px) {
@@ -209,13 +215,21 @@
 
 .contentPresentationEmpresa {
   max-width: 98%;
+
+  @media only screen and (min-width: 1400px) {
+    max-width: 100%;
+    margin-top: 10rem;
+  }
 }
-.detail2 {
+
+.topicDois {
   margin-top: 10px;
-  margin-left: 5rem;
+}
+
+.sessaoServicos {
+  text-align: center;
+}
+.descriptionServicos {
   width: 50%;
-}
-.topic2 {
-  margin-top: 10px;
-  margin-left: 20px;
+  margin: 1rem auto;
 }

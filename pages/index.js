@@ -1,15 +1,10 @@
-import Head from "next/head";
+// import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Metal Pev - Caldeiraria</title>
-        <meta name="description" content="Caldeirarias" />
-        <link rel="icon" href="/favlogo.png" />
-      </Head>
       <div className={styles.bodyContent}>
         <header className={styles.headerStyle}>
           <div className={styles.linearGradient}>
@@ -103,7 +98,7 @@ export default function Home() {
               <img src="/nr13.jpg" alt="NR-13" />
             </div>
 
-            <div className={styles.sessaoContent}>
+            <div className={styles.sessaoContentEmpresa}>
               <h2 className={styles.title}>
                 A Metal Pev é uma empresa especialista na norma NR-13,{" "}
               </h2>
@@ -112,7 +107,31 @@ export default function Home() {
                 pressão, Tanques metálicos e Tubulações como também aplicando
                 treinamento para operadores de Caldeiras e Vasos de pressão
               </p>
+
+              <div className={styles.beneficios}>
+                <h3>Benefícios</h3>
+                <div className={styles.detailDois}>
+                  <li className={styles.topicDois}>
+                    Adequação as normas da NR-13
+                  </li>
+                  <li className={styles.topicDois}>
+                    Adequação as normas da NP.
+                  </li>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+
+        <section className={styles.sessaoServicos}>
+          <a id="servicos" name="servicos"></a>
+          <div>
+            <h2 className={styles.title}>Serviços</h2>
+            <p className={styles.descriptionServicos}>
+              As soluções possibilitam o controle, monitoramento e operação
+              remota de sistemas de iluminação Pública, permitindo monitorar e
+              controlar diversos pontos em tempo real.
+            </p>
           </div>
         </section>
       </div>
