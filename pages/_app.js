@@ -1,8 +1,11 @@
 import "../styles/globals.scss";
-
+import Head from "next/head";
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Metal Pev - Caldeiraria</title>
+      </Head>
       <Component {...pageProps} />
     </>
   );

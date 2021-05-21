@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.scss";
-
+import Image from "next/image";
 export default function Home() {
   return (
     <>
@@ -62,7 +62,7 @@ export default function Home() {
           <a id="sobre" name="sobre"></a>
           <div className={styles.contentPresentation}>
             <div className={styles.contentBanner}>
-              <img src="/section-sobre.jpg" alt="operador" alt="inspeção" />
+              <img src="/sectionsobre.jpg" alt="Inspeção" />
             </div>
 
             <div className={styles.sessaoContent}>
