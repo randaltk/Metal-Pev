@@ -53,10 +53,13 @@ export default function Home() {
                   Solução eficiente na adequação a norma NR-13, tornando
                   ambiente de trabalho mais seguro.
                 </p>
-                <button className={styles.btnDefault}>
-                  Solicitar orçamento
-                  <img src="/Arrow 4.png" alt="arrow" />
-                </button>
+                <a href="#empresa">
+                  {" "}
+                  <button className={styles.btnDefault}>
+                    Solicitar orçamento
+                    <img src="/Arrow 4.png" alt="arrow" />
+                  </button>
+                </a>
               </div>
             </section>
           </div>
