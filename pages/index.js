@@ -1,5 +1,3 @@
-// import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
@@ -31,7 +29,7 @@ export default function Home() {
                       <a href="#empresa">Empresa</a>
                     </li>
                     <li className={styles.navItem}>
-                      <a href="#beneficios">Serviços</a>
+                      <a href="#servicos">Serviços</a>
                     </li>
                     <li className={styles.navItem}>
                       <a href="#contato">Contato</a>
@@ -52,7 +50,7 @@ export default function Home() {
                   {" "}
                   <button className={styles.btnDefault}>
                     Solicitar orçamento
-                    <img src="/Arrow 4.png" alt="arrow" />
+                    <img src="/Arrow 4.png" alt="Arrow" />
                   </button>
                 </a>
               </div>
