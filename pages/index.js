@@ -15,7 +15,10 @@ export default function Home() {
           <div className={styles.linearGradient}>
             <div className={styles.headerNavigation}>
               <div className={styles.logoMetalPev}>
-                <img src="/logo-metal-pev.png" alt="Metal Pev Caldeiraria" />
+                <a href="/">
+                  {" "}
+                  <img src="/logo-metal-pev.png" alt="Metal Pev Caldeiraria" />
+                </a>
               </div>
 
               <div className={styles.headerMenu}>
@@ -79,7 +82,7 @@ export default function Home() {
                 são intuitivas e abrangentes e irão te ajudar a alcançar
                 reduções nos custos, diminuição dos índices de falhas,
                 cumprimento dos prazos para atendimento e vários outros
-                Benefícios que você verá em seguida.
+                benefícios que você verá em seguida.
               </p>
 
               <ul className={styles.detail}>
@@ -92,13 +95,12 @@ export default function Home() {
 
         <section className={styles.sessaoEmpresa}>
           <a id="empresa" name="empresa"></a>
-          <div className={styles.contentPresentation}>
+          <div className={styles.contentPresentationEmpresa}>
             <div className={styles.contentBannerEmpresa}>
               <img src="/nr13.jpg" alt="NR-13" />
             </div>
 
-            <div className={styles.sessaoContentEmpresa}>
-              <div className={styles.borderStyle}></div>
+            <div className={styles.sessaoContent}>
               <h2 className={styles.title}>
                 A Metal Pev é uma empresa especialista na norma NR-13,{" "}
               </h2>
