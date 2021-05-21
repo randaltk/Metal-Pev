@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-br">
         <Head>
-          <meta name="description" content="Caldeirarias" />
+          <meta name="description" content="Caldeiraria" />
           <link rel="icon" href="/favlogo.png" />
         </Head>
         <body>
