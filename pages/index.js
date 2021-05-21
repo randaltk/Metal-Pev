@@ -85,9 +85,6 @@ export default function Home() {
               <ul className={styles.detail}>
                 <li className={styles.topic}>Adequação as normas da NR-13</li>
                 <li className={styles.topic}>Adequação as normas da NP.</li>
-                <li className={styles.topic}>
-                  Análise e coleta de dados sobre os pontos de risco
-                </li>
               </ul>
             </div>
           </div>
