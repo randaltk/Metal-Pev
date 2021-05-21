@@ -96,7 +96,7 @@ export default function Home() {
               <img src="/nr13.jpg" alt="NR-13" />
             </div>
 
-            <div className={styles.sessaoContentEmpresa}>
+            <div className={styles.sessaoContent}>
               <h2 className={styles.title}>
                 A Metal Pev é uma empresa especialista na norma NR-13,{" "}
               </h2>
@@ -109,12 +109,12 @@ export default function Home() {
               <div className={styles.beneficios}>
                 <h3>Benefícios</h3>
                 <div className={styles.detailDois}>
-                  <li className={styles.topicDois}>
-                    Adequação as normas da NR-13
-                  </li>
-                  <li className={styles.topicDois}>
-                    Adequação as normas da NP.
-                  </li>
+                  <p className={styles.topicDois}>
+                    <span>• </span> Adequação as normas da NR-13
+                  </p>
+                  <p className={styles.topicDois}>
+                    <span>• </span>Adequação as normas da NP.
+                  </p>
                 </div>
               </div>
             </div>
@@ -126,9 +126,9 @@ export default function Home() {
           <div>
             <h2 className={styles.title}>Serviços</h2>
             <p className={styles.descriptionServicos}>
-              As soluções possibilitam o controle, monitoramento e operação
-              remota de sistemas de iluminação Pública, permitindo monitorar e
-              controlar diversos pontos em tempo real.
+              As soluções possibilitam o controle, monitoramento e operação de
+              instalações, permitindo monitorar e controlar diversos pontos em
+              tempo real.
             </p>
           </div>
         </section>
