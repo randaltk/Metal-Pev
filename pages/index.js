@@ -10,7 +10,12 @@ export default function Home() {
               <div className={styles.logoMetalPev}>
                 <a href="/">
                   {" "}
-                  <img src="/logo-metal-pev.png" alt="Metal Pev Caldeiraria" />
+                  <Image
+                    src="https://res.cloudinary.com/aguadeira/image/upload/v1621722710/public/logo-metal-pev_gndxm1.png"
+                    alt="Metal Pev Caldeiraria"
+                    width={160}
+                    height={70}
+                  />
                 </a>
               </div>
 
@@ -62,7 +67,12 @@ export default function Home() {
           <a id="sobre" name="sobre"></a>
           <div className={styles.contentPresentation}>
             <div className={styles.contentBanner}>
-              <img src="/sectionsobre.jpg" alt="Inspeção" />
+              <Image
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621735210/public/sectionsobre_1_kz7ogq_1_d6wuw0.png"
+                alt="Inspeção"
+                width={438.08}
+                height={350.38}
+              />
             </div>
 
             <div className={styles.sessaoContent}>
@@ -93,7 +103,12 @@ export default function Home() {
           <a id="empresa" name="empresa"></a>
           <div className={styles.contentPresentationEmpresa}>
             <div className={styles.contentBannerEmpresa}>
-              <img src="/nr13.jpg" alt="NR-13" />
+              <Image
+                width={532.8}
+                height={532.8}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1617378253/Nolan/icon-nr13_uwxlnj.png"
+                alt="NR-13"
+              />
             </div>
 
             <div className={styles.sessaoContent}>
@@ -130,6 +145,118 @@ export default function Home() {
               instalações, permitindo monitorar e controlar diversos pontos em
               tempo real.
             </p>
+          </div>
+
+          <div className={styles.cards}>
+            <div className={styles.cardsContent}>
+              <Image
+                className={styles.cardsContentImg}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621735825/public/caldeiras-services_ca2fbf_hdvlef_2_kreldc.png"
+                alt="Caldeiras"
+                width={500}
+                height={500}
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Caldeiras</h3>
+                <p>
+                  Projeto, fabricação e instalação de misturadores,tanque de
+                  armazenamento e tubuçaões industriais.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.cardsContent}>
+              <Image
+                className={styles.cardsContentImg}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621722710/public/servico-2_brvjtv.jpg"
+                alt="Válvulas"
+                width={500}
+                height={500}
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Válvulas</h3>
+                <p>Fabricação e instalação de válvulas de segurança</p>
+              </div>
+            </div>
+
+            <div className={styles.cardsContent}>
+              <Image
+                className={styles.cardsContentImg}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621722709/public/servico-3_ezdwul.jpg"
+                alt="Escadas"
+                width={500}
+                height={500}
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Escadas</h3>
+                <p>
+                  Escadas retas, escadas helicoidais, mesaninos,guarda-corpo
+                  ,proteção de máquinas
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.cardsContent}>
+              <Image
+                className={styles.cardsContentImg}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621736342/public/servico-4_xlkuvt_1_ey7qgy.jpg"
+                alt="Manifolds"
+                width={500}
+                height={500}
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Manifolds</h3>
+                <p>Manifolds</p>
+              </div>
+            </div>
+
+            <div className={styles.cardsContent}>
+              <Image
+                className={styles.cardsContentImg}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621736705/public/servico-5_wt8yxm_2_uvinfu.jpg"
+                width={500}
+                alt="Adequação a norma nr-13"
+                height={500}
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Adequação a norma NR 13</h3>
+                <p>Adequação a norma NR 13</p>
+              </div>
+            </div>
+
+            <div className={styles.cardsContent}>
+              <img
+                className={styles.cardsContentImg}
+                src="/servico-6.jpeg"
+                alt="serviço"
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Configuração</h3>
+                <p>
+                  Cada ação é configurável – isto é: para cada ação ligar,
+                  entrar em modo de controle por Lux, etc, cliente pode
+                  configurar os parâmetros de cada ação sensibilidade,
+                  intensidade base da luz, etc.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.cardsContent}>
+              <img
+                className={styles.cardsContentImg}
+                src="/servico-7.jpeg"
+                alt="serviço"
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Configuração</h3>
+                <p>
+                  Cada ação é configurável – isto é: para cada ação ligar,
+                  entrar em modo de controle por Lux, etc, cliente pode
+                  configurar os parâmetros de cada ação sensibilidade,
+                  intensidade base da luz, etc.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
       </div>

@@ -6,7 +6,10 @@ export default class MyDocument extends Document {
       <Html lang="pt-br">
         <Head>
           <meta name="description" content="Caldeiraria" />
-          <link rel="icon" href="/favlogo.png" />
+          <link
+            rel="icon"
+            href="https://res.cloudinary.com/aguadeira/image/upload/v1621722709/public/favlogo_cizabe.png"
+          />
         </Head>
         <body>
           <Main />
