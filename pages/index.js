@@ -224,40 +224,6 @@ export default function Home() {
                 <p>Adequação a norma NR 13</p>
               </div>
             </div>
-
-            <div className={styles.cardsContent}>
-              <img
-                className={styles.cardsContentImg}
-                src="/servico-6.jpeg"
-                alt="serviço"
-              />
-              <div className={styles.cardsDescription}>
-                <h3>Configuração</h3>
-                <p>
-                  Cada ação é configurável – isto é: para cada ação ligar,
-                  entrar em modo de controle por Lux, etc, cliente pode
-                  configurar os parâmetros de cada ação sensibilidade,
-                  intensidade base da luz, etc.
-                </p>
-              </div>
-            </div>
-
-            <div className={styles.cardsContent}>
-              <img
-                className={styles.cardsContentImg}
-                src="/servico-7.jpeg"
-                alt="serviço"
-              />
-              <div className={styles.cardsDescription}>
-                <h3>Configuração</h3>
-                <p>
-                  Cada ação é configurável – isto é: para cada ação ligar,
-                  entrar em modo de controle por Lux, etc, cliente pode
-                  configurar os parâmetros de cada ação sensibilidade,
-                  intensidade base da luz, etc.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
       </div>
