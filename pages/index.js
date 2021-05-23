@@ -48,7 +48,7 @@ export default function Home() {
             <section className={styles.headerContent}>
               <div className={styles.textCard}>
                 <h2 className={styles.title}>
-                  Metalpev Caldeiraria & Instalações Industriais
+                  MetalPev Caldeiraria & Instalações Industriais
                 </h2>
                 <p className={styles.description}></p>
                 <a href="#contato">
