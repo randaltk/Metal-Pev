@@ -302,10 +302,21 @@
   top: 70%;
   padding: 15px;
   color: white;
+
   text-align: left;
   transition: 0.2s;
   text-shadow: -0.5px 0 0.1px black, 0 0.5px 0.1px black, 0.5px 0 0.1px black,
     0 -0.5px 0.1px black;
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
 }
 
 .cardsDescription p {

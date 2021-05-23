@@ -224,6 +224,38 @@ export default function Home() {
                 <p>Adequação a norma NR 13</p>
               </div>
             </div>
+
+            <div className={styles.cardsContent}>
+              <Image
+                className={styles.cardsContentImg}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621744931/public/servico-7_csz0r8_1_ghoptk.jpg"
+                width={500}
+                alt="Reposicionamento de tanques"
+                height={500}
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Reposicionamento de tanques</h3>
+
+                <p>Reposicionamento de tanques</p>
+              </div>
+            </div>
+
+            <div className={styles.cardsContent}>
+              <Image
+                className={styles.cardsContentImg}
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1617378255/Nolan/solda-services_fpmnri.jpg"
+                width={500}
+                alt="Soldas"
+                height={500}
+              />
+              <div className={styles.cardsDescription}>
+                <h3>Soldas</h3>
+                <p>
+                  Executamos inspeções de solda como liquido penetrante,
+                  Ultrassom, partícula magnética e inspeção visual.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
       </div>
