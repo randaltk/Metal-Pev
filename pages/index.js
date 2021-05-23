@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
-//att
+import ReactWhatsapp from "react-whatsapp";
 export default function Home() {
   return (
     <>
@@ -47,12 +47,11 @@ export default function Home() {
 
             <section className={styles.headerContent}>
               <div className={styles.textCard}>
-                <h2 className={styles.title}>Adequação a norma NR-13</h2>
-                <p className={styles.description}>
-                  Solução eficiente na adequação a norma NR-13, tornando
-                  ambiente de trabalho mais seguro.
-                </p>
-                <a href="#empresa">
+                <h2 className={styles.title}>
+                  Metalpev Caldeiraria & Instalações Industriais
+                </h2>
+                <p className={styles.description}></p>
+                <a href="#contato">
                   {" "}
                   <button className={styles.btnDefault}>
                     Solicitar orçamento
@@ -254,6 +253,45 @@ export default function Home() {
                   Executamos inspeções de solda como liquido penetrante,
                   Ultrassom, partícula magnética e inspeção visual.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <a id="contato" name="contato"></a>
+          <div className={styles.sessaoContato}>
+            <div className={styles.contentPresentation}>
+              <div className={styles.contentBanner}>
+                <Image
+                  src="https://res.cloudinary.com/aguadeira/image/upload/v1621748263/public/pexels-linkedin-sales-navigator-2182973_2_zc2bpt.jpg"
+                  alt="Entre em contato"
+                  width={438.08}
+                  height={350.38}
+                />
+              </div>
+
+              <div className={styles.sessaoContent}>
+                <div className={styles.borderStyle}></div>
+                <h2 className={styles.title}>Entre em contato !</h2>
+                <p className={styles.description}>
+                  Nossa equipe esta preparada para atender a sua empresa de
+                  forma ágil, confiável e transparente.
+                </p>
+
+                <ReactWhatsapp
+                  className={styles.btnDefault}
+                  number="55 11 95363-4019"
+                  message="Olá! Gostaria de obter mais informações"
+                  href="#"
+                >
+                  Iniciar Conversa
+                  <Image
+                    width={"20"}
+                    height={"20"}
+                    src="https://res.cloudinary.com/aguadeira/image/upload/v1621748873/public/whatsapp_dxxh1m.png"
+                  />
+                </ReactWhatsapp>
               </div>
             </div>
           </div>
