@@ -1,7 +1,29 @@
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import ReactWhatsapp from "react-whatsapp";
+import { useState } from "react";
 export default function Home() {
+  const [status, setStatus] = useState("");
+
+  const submitForm = (ev) => {
+    ev.preventDefault();
+    const form = ev.target;
+    const data = new FormData(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(form.method, form.action);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        form.reset();
+        setStatus({ status: "SUCCESS" });
+      } else {
+        setStatus({ status: "ERROR" });
+      }
+    };
+    xhr.send(data);
+  };
+
   return (
     <>
       <div className={styles.bodyContent}>
@@ -340,40 +362,50 @@ export default function Home() {
                 Entre em contato e teremos o prazer em esclarecer qualquer
                 dúvida.
               </p>
-              <form id="form">
+              <form
+                id="form-contato"
+                onSubmit={submitForm}
+                action="https://formspree.io/f/xpzkdany"
+                method="POST"
+              >
                 <label for="Nome" class="mark">
                   Nome
                 </label>
                 <input
                   type="text"
-                  id="nome"
-                  name="nome"
+                  name="name"
                   placeholder="Digite seu nome"
+                  required
                 />
-                <p class="error-message" id="newsletter-nome-validation"></p>
-                <label for="Nome" class="mark">
+
+                <label for="Email" class="mark">
                   Email
                 </label>
                 <input
                   type="text"
                   name="email"
-                  id="email"
                   placeholder="Digite seu e-mail"
+                  required
                 />
-                <p class="error-message" id="newsletter-email-validation"></p>
-                <label for="Nome" class="mark">
+                <label for="Telefone ">Telefone</label>
+                <input
+                  placeholder="55 11 98876-5432"
+                  type="number"
+                  name="phone"
+                />
+                <label for="Mensagem" class="mark">
                   Mensagem
                 </label>
-                <textarea type="text" id="mensagem" name="mensagem" />
-                <p
-                  class="error-message"
-                  id="newsletter-hp-validation"
-                  class="hp"
-                ></p>
-                <button className={styles.btnDefault}>Enviar</button>
-                <div class="notification-form">
-                  {/* <span>Formulário enviado com sucesso !</span> */}
-                </div>
+                <textarea type="text" name="message" required />
+
+                {status === "SUCCESS" ? (
+                  <p className={styles.notification}>
+                    Obrigado! Nós entraremos em contato em breve
+                  </p>
+                ) : (
+                  <button className={styles.btnDefault}>Enviar</button>
+                )}
+                {status === "ERROR" && <p>Ooops! ocorreu um erro.</p>}
               </form>
             </div>
             <div>
