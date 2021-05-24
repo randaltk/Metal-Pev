@@ -13,7 +13,7 @@ export default function Home() {
                   {" "}
                   <Image
                     src="https://res.cloudinary.com/aguadeira/image/upload/v1621722710/public/logo-metal-pev_gndxm1.png"
-                    alt="Metal Pev Caldeiraria"
+                    alt="MetalPev Caldeiraria & Instalações Industriais"
                     width={160}
                     height={70}
                   />
@@ -55,7 +55,10 @@ export default function Home() {
                   {" "}
                   <button className={styles.btnDefault}>
                     Solicitar orçamento
-                    <img src="/Arrow 4.png" alt="Arrow" />
+                    <img
+                      src="https://res.cloudinary.com/aguadeira/image/upload/v1621722710/public/Arrow_4_heq4na.png"
+                      alt="Arrow"
+                    />
                   </button>
                 </a>
               </div>
@@ -83,7 +86,7 @@ export default function Home() {
                 <span>mezaninos e muito mais !</span>
               </h2>
               <p className={styles.description}>
-                Com a Metal Pev você gerencia os serviços de manutenção de
+                Com a MetalPev você gerencia os serviços de manutenção de
                 instalacoes industrias de forma prática e ágil, nossas reformas
                 são intuitivas e abrangentes e irão te ajudar a alcançar
                 reduções nos custos, diminuição dos índices de falhas,
@@ -113,7 +116,7 @@ export default function Home() {
 
             <div className={styles.sessaoContent}>
               <h2 className={styles.title}>
-                A Metal Pev é uma empresa especialista na norma NR-13,{" "}
+                A MetalPev é uma empresa especialista na norma NR-13,{" "}
               </h2>
               <p className={styles.description}>
                 Com foco na segurança de equipamentos como Caldeiras, Vasos de
@@ -268,6 +271,7 @@ export default function Home() {
                   alt="Entre em contato"
                   width={438.08}
                   height={350.38}
+                  alt="Contato"
                 />
               </div>
 
@@ -286,10 +290,10 @@ export default function Home() {
                   href="#"
                 >
                   Iniciar Conversa
-                  <Image
-                    width={"20"}
-                    height={"20"}
-                    src="https://res.cloudinary.com/aguadeira/image/upload/v1621748873/public/whatsapp_dxxh1m.png"
+                  <img
+                    className={styles.whatsAppIcon}
+                    alt="WhatsApp"
+                    src="https://res.cloudinary.com/aguadeira/image/upload/v1621860797/public/580b57fcd9996e24bc43c543_rq3rpg.png"
                   />
                 </ReactWhatsapp>
               </div>

@@ -258,7 +258,7 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 600px) {
     grid-template-columns: 1fr;
   }
 }
@@ -325,4 +325,32 @@
 
 .sessaoContato {
   margin: 12rem 8rem;
+
+  .btnDefault {
+    .whatsAppIcon {
+      margin-left: 0.5rem;
+      width: 10%;
+      object-fit: cover;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    margin: 20rem 8rem;
+  }
+
+  @media only screen and (max-width: 800px) {
+    margin: 20rem 2rem;
+
+    .description {
+      margin-top: 5%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 50rem 2rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    margin: 30rem 2rem;
+  }
 }

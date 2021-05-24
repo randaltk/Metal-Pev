@@ -4,7 +4,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Metal Pev - Caldeiraria</title>
+        <title> MetalPev - Caldeiraria & Instalações Industriais</title>
       </Head>
       <Component {...pageProps} />
     </>
