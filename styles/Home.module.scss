@@ -190,6 +190,9 @@
   @media only screen and (max-width: 1200px) {
     margin: 2rem 2rem;
   }
+  @media only screen and (max-width: 600px) {
+    height: auto;
+  }
 }
 .contentBannerEmpresa {
   float: left;

@@ -340,13 +340,13 @@ export default function Home() {
                 Entre em contato e teremos o prazer em esclarecer qualquer
                 dúvida.
               </p>
-              <form id="form-newsletter">
+              <form id="form">
                 <label for="Nome" class="mark">
                   Nome
                 </label>
                 <input
                   type="text"
-                  id="newsletter-nome"
+                  id="nome"
                   name="nome"
                   placeholder="Digite seu nome"
                 />
@@ -356,15 +356,15 @@ export default function Home() {
                 </label>
                 <input
                   type="text"
-                  id="newsletter-email"
                   name="email"
+                  id="email"
                   placeholder="Digite seu e-mail"
                 />
                 <p class="error-message" id="newsletter-email-validation"></p>
                 <label for="Nome" class="mark">
                   Mensagem
                 </label>
-                <textarea type="text" id="newsletter-hp" name="hp" class="hp" />
+                <textarea type="text" id="mensagem" name="mensagem" />
                 <p
                   class="error-message"
                   id="newsletter-hp-validation"
