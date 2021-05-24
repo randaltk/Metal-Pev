@@ -163,8 +163,8 @@ export default function Home() {
               <div className={styles.cardsDescription}>
                 <h3>Caldeiras</h3>
                 <p>
-                  Projeto, fabricação e instalação de misturadores,tanque de
-                  armazenamento e tubuçaões industriais.
+                  Projeto, fabricação e instalação de misturadores,tanques de
+                  armazenamento e tubulações industriais.
                 </p>
               </div>
             </div>
