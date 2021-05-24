@@ -238,6 +238,15 @@
   @media only screen and (max-width: 800px) {
     margin: 0rem 2rem;
   }
+  @media only screen and (max-width: 1200px) {
+    margin-bottom: 15rem;
+  }
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 25rem;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 35rem;
+  }
 }
 .descriptionServicos {
   width: 50%;
@@ -335,22 +344,105 @@
   }
 
   @media only screen and (max-width: 1200px) {
-    margin: 20rem 8rem;
+    margin: 0rem 8rem;
   }
 
   @media only screen and (max-width: 800px) {
-    margin: 20rem 2rem;
+    margin: 0rem 2rem;
 
     .description {
       margin-top: 5%;
     }
   }
+}
 
-  @media only screen and (max-width: 600px) {
-    margin: 50rem 2rem;
+.footer {
+  margin-top: 50px;
+  margin-top: 20px;
+  margin-left: -25px;
+  background-color: #fff;
+  box-shadow: black;
+  border-top: 1px #7c7c7c solid;
+  @media only screen and (max-width: 800px) {
+    margin-left: 0px;
   }
 
-  @media only screen and (max-width: 400px) {
-    margin: 30rem 2rem;
+  .logo-metal-pev {
+    padding: 10px;
   }
+}
+.horizontalLayout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0px 5vw;
+  div {
+    min-width: 15em;
+    flex: 1 0 33%;
+  }
+}
+.footerTitle {
+  margin-top: 20px;
+  width: 250px;
+}
+
+.siteMap {
+  list-style-type: none;
+  color: #7c7c7c;
+  li {
+    padding: 5px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+.footerSocial {
+  list-style-type: none;
+  padding: 15px 0px;
+  display: flex;
+  li {
+    color: #7c7c7c;
+    justify-content: space-around;
+  }
+
+  img {
+    width: 20px;
+    margin: 0rem 0.65rem;
+  }
+}
+
+.footerContact {
+  list-style-type: none;
+  padding: 15px 0px;
+
+  li {
+    margin: auto;
+    padding: 5px;
+    color: #7c7c7c;
+  }
+  img {
+    vertical-align: middle;
+    width: 10%;
+    object-fit: cover;
+  }
+}
+
+li.footer::marker {
+  color: transparent;
+}
+
+.footerDescription {
+  font-size: 16px;
+  color: #7c7c7c;
+}
+
+.footerEnd {
+  display: block;
+  margin: auto;
+  text-align: center;
+  color: #7c7c7c;
+  padding-block-end: 50px;
+  padding-top: 50px;
 }

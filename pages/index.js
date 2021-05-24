@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <>
       <div className={styles.bodyContent}>
+        <a id="home" name="home"></a>
         <header className={styles.headerStyle}>
           <div className={styles.linearGradient}>
             <div className={styles.headerNavigation}>
@@ -261,45 +262,171 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section className={styles.sessaoContato}>
           <a id="contato" name="contato"></a>
-          <div className={styles.sessaoContato}>
-            <div className={styles.contentPresentation}>
-              <div className={styles.contentBanner}>
-                <Image
-                  src="https://res.cloudinary.com/aguadeira/image/upload/v1621748263/public/pexels-linkedin-sales-navigator-2182973_2_zc2bpt.jpg"
-                  alt="Entre em contato"
-                  width={438.08}
-                  height={350.38}
-                  alt="Contato"
+
+          <div className={styles.contentPresentation}>
+            <div className={styles.contentBanner}>
+              <Image
+                src="https://res.cloudinary.com/aguadeira/image/upload/v1621748263/public/pexels-linkedin-sales-navigator-2182973_2_zc2bpt.jpg"
+                alt="Entre em contato"
+                width={438.08}
+                height={350.38}
+                alt="Contato"
+              />
+            </div>
+
+            <div className={styles.sessaoContent}>
+              <div className={styles.borderStyle}></div>
+              <h2 className={styles.title}>Entre em contato !</h2>
+              <p className={styles.description}>
+                Nossa equipe esta preparada para atender a sua empresa de forma
+                ágil, confiável e transparente.
+              </p>
+
+              <ReactWhatsapp
+                className={styles.btnDefault}
+                number="55 11 95363-4019"
+                message="Olá! Gostaria de obter mais informações"
+                href="#"
+              >
+                Iniciar Conversa
+                <img
+                  className={styles.whatsAppIcon}
+                  alt="WhatsApp"
+                  src="https://res.cloudinary.com/aguadeira/image/upload/v1621877447/public/580b57fcd9996e24bc43c543_rq3rpg_1_hzqvlk.png"
                 />
-              </div>
-
-              <div className={styles.sessaoContent}>
-                <div className={styles.borderStyle}></div>
-                <h2 className={styles.title}>Entre em contato !</h2>
-                <p className={styles.description}>
-                  Nossa equipe esta preparada para atender a sua empresa de
-                  forma ágil, confiável e transparente.
-                </p>
-
-                <ReactWhatsapp
-                  className={styles.btnDefault}
-                  number="55 11 95363-4019"
-                  message="Olá! Gostaria de obter mais informações"
-                  href="#"
-                >
-                  Iniciar Conversa
-                  <img
-                    className={styles.whatsAppIcon}
-                    alt="WhatsApp"
-                    src="https://res.cloudinary.com/aguadeira/image/upload/v1621860797/public/580b57fcd9996e24bc43c543_rq3rpg.png"
-                  />
-                </ReactWhatsapp>
-              </div>
+              </ReactWhatsapp>
             </div>
           </div>
         </section>
+        <footer className={styles.footer}>
+          <div className={styles.horizontalLayout}>
+            <div className={styles.siteMap}>
+              <a href="/">
+                {" "}
+                <Image
+                  src="https://res.cloudinary.com/aguadeira/image/upload/v1621722710/public/logo-metal-pev_gndxm1.png"
+                  alt="MetalPev Caldeiraria & Instalações Industriais"
+                  width={160}
+                  height={70}
+                />
+              </a>
+
+              <ul className={styles.siteMap}>
+                <li>
+                  <a href="#home">Home</a>
+                </li>
+                <li>
+                  <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                  <a href="#empresa">Empresa</a>
+                </li>
+                <li>
+                  <a href="#servicos">Serviços</a>
+                </li>
+                <li>
+                  <a href="#contato">Contato</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className={styles.footerTitle}>
+                <div className={styles.borderStyle}></div>
+                Contato
+              </h3>
+              <p className={styles.footerDescription}>
+                Entre em contato e teremos o prazer em esclarecer qualquer
+                dúvida.
+              </p>
+              <form id="form-newsletter">
+                <label for="Nome" class="mark">
+                  Nome
+                </label>
+                <input
+                  type="text"
+                  id="newsletter-nome"
+                  name="nome"
+                  placeholder="Digite seu nome"
+                />
+                <p class="error-message" id="newsletter-nome-validation"></p>
+                <label for="Nome" class="mark">
+                  Email
+                </label>
+                <input
+                  type="text"
+                  id="newsletter-email"
+                  name="email"
+                  placeholder="Digite seu e-mail"
+                />
+                <p class="error-message" id="newsletter-email-validation"></p>
+                <label for="Nome" class="mark">
+                  Mensagem
+                </label>
+                <textarea type="text" id="newsletter-hp" name="hp" class="hp" />
+                <p
+                  class="error-message"
+                  id="newsletter-hp-validation"
+                  class="hp"
+                ></p>
+                <button className={styles.btnDefault}>Enviar</button>
+                <div class="notification-form">
+                  {/* <span>Formulário enviado com sucesso !</span> */}
+                </div>
+              </form>
+            </div>
+            <div>
+              <h3 className={styles.footerTitle}>
+                <div className={styles.borderStyle}></div>
+                MetalPev nas redes sociais
+              </h3>
+              <ul className={styles.footerSocial}>
+                <li>
+                  <img
+                    src="https://res.cloudinary.com/aguadeira/image/upload/v1621878348/public/58e91afdeb97430e81906504_1_lsl4hy.png"
+                    alt="Linkedin"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="https://res.cloudinary.com/aguadeira/image/upload/v1621878007/public/584ac2d03ac3a570f94a666d_1_hfppbn.png"
+                    alt="Facebook"
+                  />
+                </li>
+              </ul>
+              <ul className={styles.footerContact}>
+                <li>
+                  <p>
+                    <img
+                      alt="WhatsApp"
+                      src="https://res.cloudinary.com/aguadeira/image/upload/v1621877447/public/580b57fcd9996e24bc43c543_rq3rpg_1_hzqvlk.png"
+                    />
+                    55 11 95363-4019
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <img
+                      alt="Email"
+                      src="https://res.cloudinary.com/aguadeira/image/upload/v1621877390/public/584856b4e0bb315b0f7675ac_1_1_kd0wv4.png"
+                    />
+                    contato@metalpev.com
+                  </p>
+                </li>
+              </ul>
+              <h3 className={styles.footerTitle}>
+                <div className={styles.borderStyle}></div>
+                Endereço
+              </h3>
+              <p className={styles.footerDescription}>
+                Rua José Dias Barroso, 191 Centro CEP 37130-053 Alfenas - MG
+                Tell: 55 11 95363-4019
+              </p>
+            </div>
+          </div>
+          <p className={styles.footerEnd}>MetalPev 2021 Direitos Reservados</p>
+        </footer>
       </div>
     </>
   );

@@ -51,7 +51,37 @@ nav ul {
 ul {
   box-shadow: black;
 }
+input::placeholder {
+  font-size: 0.7rem;
+  text-align: left;
+  margin-right: -20px;
+  font-style: italic;
+}
 
+input {
+  padding: 5px;
+  width: 80%;
+  border: none;
+  border-bottom-color: currentcolor;
+  border-bottom-style: none;
+  border-bottom-width: medium;
+  border-bottom: 2px #d4cfcf solid;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  margin-top: 20px;
+  margin-block-end: 10px;
+}
+label {
+  font-size: 15px;
+  display: table;
+}
+textarea {
+  margin-top: 20px;
+
+  outline: none;
+  width: 80%;
+}
 @media only screen and (max-width: 800px) {
   h1,
   h2 {
