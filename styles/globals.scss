@@ -99,3 +99,29 @@ textarea {
     justify-content: flex-end;
   }
 }
+.uploadcare--widget__button,
+.uploadcare--widget__button:hover {
+  padding: 10px;
+
+  background-color: #8a201af5;
+  border: 3px dashed rgba(39, 1, 1, 0.637);
+  border-radius: 0;
+  font-family: Sans-serif;
+  font-weight: 800;
+  margin-left: 5%;
+}
+
+.uploadcare--widget__button:hover {
+  background-color: #000;
+  cursor: pointer;
+}
+
+.uploader-demo-circle
+  .uploadcare--widget_status_loaded
+  .uploadcare--widget_status {
+  display: inline-block !important;
+}
+.uploader-demo-circle .uploadcare--progress_type_canvas {
+  color: #8a201af5;
+  border-color: #d4dfe5;
+}

@@ -1,28 +1,16 @@
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import ReactWhatsapp from "react-whatsapp";
-import { useState } from "react";
+import { useForm } from "@formspree/react";
+import { useEffect } from "react";
 export default function Home() {
-  const [status, setStatus] = useState("");
-
-  const submitForm = (ev) => {
-    ev.preventDefault();
-    const form = ev.target;
-    const data = new FormData(form);
-    const xhr = new XMLHttpRequest();
-    xhr.open(form.method, form.action);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        form.reset();
-        setStatus({ status: "SUCCESS" });
-      } else {
-        setStatus({ status: "ERROR" });
-      }
-    };
-    xhr.send(data);
-  };
+  const [state, handleSubmit] = useForm("xpzkdany");
+  useEffect(() => {
+    const el1 = document.getElementsByClassName(
+      ".uploadcare--widget__button uploadcare--widget__button_type_open"
+    );
+    el1.innerText = "tetse";
+  }, []);
 
   return (
     <>
@@ -363,10 +351,12 @@ export default function Home() {
                 dúvida.
               </p>
               <form
-                id="form-contato"
-                onSubmit={submitForm}
+                id="fs-frm"
+                accept-charset="utf-8"
+                onSubmit={handleSubmit}
                 action="https://formspree.io/f/xpzkdany"
                 method="POST"
+                enctype="multipart/form-data"
               >
                 <label for="Nome" class="mark">
                   Nome
@@ -393,19 +383,26 @@ export default function Home() {
                   type="number"
                   name="phone"
                 />
+                <label class="uploader-demo-circle">
+                  Anexo:
+                  <input type="hidden" role="uploadcare-uploader" />
+                </label>
                 <label for="Mensagem" class="mark">
                   Mensagem
                 </label>
                 <textarea type="text" name="message" required />
 
-                {status === "SUCCESS" ? (
-                  <p className={styles.notification}>
-                    Obrigado! Nós entraremos em contato em breve
-                  </p>
+                {state.succeeded ? (
+                  <p>Obrigado! Nós entraremos em contato em breve</p>
                 ) : (
-                  <button className={styles.btnDefault}>Enviar</button>
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className={styles.btnDefault}
+                  >
+                    Enviar
+                  </button>
                 )}
-                {status === "ERROR" && <p>Ooops! ocorreu um erro.</p>}
               </form>
             </div>
             <div>
@@ -443,7 +440,7 @@ export default function Home() {
                       alt="Email"
                       src="https://res.cloudinary.com/aguadeira/image/upload/v1621877390/public/584856b4e0bb315b0f7675ac_1_1_kd0wv4.png"
                     />
-                    contato@metalpev.com
+                    metalpev@gmail.com
                   </p>
                 </li>
               </ul>

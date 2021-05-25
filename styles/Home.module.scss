@@ -449,28 +449,3 @@ li.footer::marker {
   padding-block-end: 50px;
   padding-top: 50px;
 }
-.notification {
-  padding: 0.5rem;
-  margin: 1rem auto;
-  display: none;
-  background-color: rgba(0, 128, 0, 0.8);
-  transition: ease-in 2s;
-  transform: scale(1);
-  position: fixed;
-  border: 1px solid rgba(0, 128, 0, 0.8);
-  top: 0;
-  margin-left: 10%;
-  z-index: 100;
-  border-radius: 8px;
-
-  transition: all 5s ease;
-  animation: imganim 0.5s linear both;
-}
-@keyframes imganim {
-  from {
-    margin-top: -1rem;
-  }
-  to {
-    margin-top: 1rem;
-  }
-}
