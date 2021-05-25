@@ -2,15 +2,9 @@ import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import ReactWhatsapp from "react-whatsapp";
 import { useForm } from "@formspree/react";
-import { useEffect } from "react";
+
 export default function Home() {
   const [state, handleSubmit] = useForm("xpzkdany");
-  useEffect(() => {
-    const el1 = document.getElementsByClassName(
-      ".uploadcare--widget__button uploadcare--widget__button_type_open"
-    );
-    el1.innerText = "tetse";
-  }, []);
 
   return (
     <>
