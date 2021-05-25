@@ -377,7 +377,7 @@ export default function Home() {
                   type="number"
                   name="phone"
                 />
-                <label class="uploader-demo-circle">
+                <label>
                   Anexo:
                   <input type="hidden" role="uploadcare-uploader" />
                 </label>
