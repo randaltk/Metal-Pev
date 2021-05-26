@@ -129,6 +129,20 @@
   resolved "https://registry.yarnpkg.com/@types/promise-polyfill/-/promise-polyfill-6.0.3.tgz#e2f38fcd244a9e0df2cc7528e0711abcbc707b5e"
   integrity sha512-f/BFgF9a+cgsMseC7rpv9+9TAE3YNjhfYrtwCo/pIeCDDfQtE6PY0b5bao2eIIEpZCBUy8Y5ToXd4ObjPSJuFw==
 
+"@uploadcare/client-suspense@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@uploadcare/client-suspense/-/client-suspense-1.0.5.tgz#b317b94172340104d5fc35af1b2c0f7c75e35935"
+  integrity sha512-bjPBjSFcrH4uvgpZOJYcv+lKzpPntZgU8F4Ycg/KDrqCLqK6N5TCwcgDINR5g28D0+Hb61VgI5LdFsc950Cw4w==
+
+"@uploadcare/react-widget@^1.3.7":
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/@uploadcare/react-widget/-/react-widget-1.3.7.tgz#0cee6e9abd5e9bcba34969c855bada7b0d6a42bc"
+  integrity sha512-tzh7o1JDWL53DS4jnLVP6i/gX44Ts1j10SWI+Dgld7zgifE28Qe6/dg/9nnAWMUwAHNFMP3Y7WCohC4ROzze+w==
+  dependencies:
+    "@uploadcare/client-suspense" "^1.0.5"
+    react-fast-compare "^3.2.0"
+    uploadcare-widget "^3.10.2"
+
 anser@1.4.9:
   version "1.4.9"
   resolved "https://registry.yarnpkg.com/anser/-/anser-1.4.9.tgz#1f85423a5dcf8da4631a341665ff675b96845760"
@@ -655,6 +669,11 @@ escalade@^3.1.1:
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
   integrity sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==
 
+escape-html@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
+  integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -990,6 +1009,11 @@ jest-worker@27.0.0-next.5:
     "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
+
+jquery@^3.4.1:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -1443,6 +1467,11 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
+react-fast-compare@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
 react-is@16.13.1, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -1796,6 +1825,14 @@ unpipe@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
+
+uploadcare-widget@^3.10.2:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/uploadcare-widget/-/uploadcare-widget-3.11.0.tgz#15dac80ad777c31e37074c372b3d450422d8bced"
+  integrity sha512-0vu0DvC98ffT0tQseif1P3KdJXCxE+WR3P/o6fphX6VdxvK7Iz3HU4CJvgjHVmUtRROL41yBm8wuKElPhWCpRg==
+  dependencies:
+    escape-html "^1.0.3"
+    jquery "^3.4.1"
 
 url@^0.11.0:
   version "0.11.0"

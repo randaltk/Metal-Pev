@@ -2,9 +2,18 @@ import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import ReactWhatsapp from "react-whatsapp";
 import { useForm } from "@formspree/react";
-
+import { Widget } from "@uploadcare/react-widget";
 export default function Home() {
   const [state, handleSubmit] = useForm("xpzkdany");
+  const alterLocale = () => ({
+    buttons: {
+      choose: {
+        files: {
+          one: "Escolher arquivo",
+        },
+      },
+    },
+  });
 
   return (
     <>
@@ -379,7 +388,11 @@ export default function Home() {
                 />
                 <label>
                   Anexo:
-                  <input type="hidden" role="uploadcare-uploader" />
+                  <Widget
+                    publicKey="504fd3e26ee6979a38bb"
+                    localeTranslations={alterLocale()}
+                    clearable
+                  />
                 </label>
                 <label for="Mensagem" class="mark">
                   Mensagem
