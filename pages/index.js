@@ -443,8 +443,8 @@ export default function Home() {
                 Endereço
               </h3>
               <p className={styles.footerDescription}>
-                Rua José Dias Barroso, 191 Centro CEP 37130-053 Alfenas - MG
-                Tell: 55 11 95363-4019
+                Rua José Barroso, 181 Centro CEP 37130-053 Socorro - SP Tell: 55
+                11 95363-4019
               </p>
             </div>
           </div>
