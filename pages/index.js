@@ -1,20 +1,9 @@
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import ReactWhatsapp from "react-whatsapp";
-import { useForm } from "@formspree/react";
-import { Widget } from "@uploadcare/react-widget";
-export default function Home() {
-  const [state, handleSubmit] = useForm("xpzkdany");
-  const alterLocale = () => ({
-    buttons: {
-      choose: {
-        files: {
-          one: "Escolher arquivo",
-        },
-      },
-    },
-  });
 
+import Upload from "../components/upload";
+export default function Home() {
   return (
     <>
       <div className={styles.bodyContent}>
@@ -353,64 +342,8 @@ export default function Home() {
                 Entre em contato e teremos o prazer em esclarecer qualquer
                 dúvida.
               </p>
-              <form
-                id="fs-frm"
-                accept-charset="utf-8"
-                onSubmit={handleSubmit}
-                action="https://formspree.io/f/xpzkdany"
-                method="POST"
-                enctype="multipart/form-data"
-              >
-                <label for="Nome" class="mark">
-                  Nome
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Digite seu nome"
-                  required
-                />
 
-                <label for="Email" class="mark">
-                  Email
-                </label>
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Digite seu e-mail"
-                  required
-                />
-                <label for="Telefone ">Telefone</label>
-                <input
-                  placeholder="55 11 98876-5432"
-                  type="number"
-                  name="phone"
-                />
-                <label>
-                  Anexo:
-                  <Widget
-                    publicKey="504fd3e26ee6979a38bb"
-                    localeTranslations={alterLocale()}
-                    clearable
-                  />
-                </label>
-                <label for="Mensagem" class="mark">
-                  Mensagem
-                </label>
-                <textarea type="text" name="message" required />
-
-                {state.succeeded ? (
-                  <p>Obrigado! Nós entraremos em contato em breve</p>
-                ) : (
-                  <button
-                    type="submit"
-                    disabled={state.submitting}
-                    className={styles.btnDefault}
-                  >
-                    Enviar
-                  </button>
-                )}
-              </form>
+              <Upload />
             </div>
             <div>
               <h3 className={styles.footerTitle}>
