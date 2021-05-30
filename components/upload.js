@@ -1,7 +1,7 @@
 import { useForm } from "@formspree/react";
 import styles from "../styles/Home.module.scss";
 export default function Upload() {
-  const [state, handleSubmit] = useForm("xpzkdany");
+  const [state, handleSubmit] = useForm("mdoygdoj");
 
   return (
     <>
@@ -9,7 +9,7 @@ export default function Upload() {
         id="fs-frm"
         accept-charset="utf-8"
         onSubmit={handleSubmit}
-        action="https://formspree.io/f/xpzkdany"
+        action="https://formspree.io/f/mdoygdoj"
         method="POST"
         enctype="multipart/form-data"
       >
