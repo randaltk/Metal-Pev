@@ -389,7 +389,7 @@ export default function Home() {
                 Endereço
               </h3>
               <p className={styles.footerDescription}>
-                Rua José Barroso, 181 Centro CEP 37130-053 Socorro - SP Tell: 55
+                Estrada particular Eiji Kikuti N°413, Cooperativa - SBC Tell: 55
                 11 95363-4019
               </p>
             </div>
