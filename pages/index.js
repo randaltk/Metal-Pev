@@ -61,8 +61,8 @@ export default function Home() {
                     <img
                       src="https://res.cloudinary.com/aguadeira/image/upload/v1621722710/public/Arrow_4_heq4na.png"
                       alt="Arrow"
-                      width={10}
-                      height={10}
+                      width={9}
+                      height={8}
                     />
                   </button>
                 </a>
