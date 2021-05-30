@@ -13,32 +13,34 @@ export default function Upload() {
         method="POST"
         enctype="multipart/form-data"
       >
-        <label for="Nome" class="mark">
-          Nome
-        </label>
-        <input type="text" name="name" placeholder="Digite seu nome" required />
+        <label for="Nome">Nome</label>
+        <input
+          id="Nome"
+          type="text"
+          name="name"
+          placeholder="Digite seu nome"
+          required
+        />
 
-        <label for="Email" class="mark">
-          Email
-        </label>
+        <label for="Email">Email</label>
         <input
           type="text"
           name="email"
+          id="Email"
           placeholder="Digite seu e-mail"
           required
         />
-        <label for="Telefone ">Telefone</label>
+        <label for="Telefone">Telefone</label>
         <input
+          id="Telefone"
           placeholder="55 11 98876-5432"
           type="number"
           name="phone"
           required
         />
 
-        <label for="Mensagem" class="mark">
-          Mensagem
-        </label>
-        <textarea type="text" name="message" required />
+        <label for="Mensagem">Mensagem</label>
+        <textarea id="Mensagem" type="text" name="message" required />
 
         {state.succeeded ? (
           <p>Obrigado! Nós entraremos em contato em breve</p>

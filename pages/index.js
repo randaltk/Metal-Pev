@@ -61,6 +61,8 @@ export default function Home() {
                     <img
                       src="https://res.cloudinary.com/aguadeira/image/upload/v1621722710/public/Arrow_4_heq4na.png"
                       alt="Arrow"
+                      width={20}
+                      height={20}
                     />
                   </button>
                 </a>
@@ -296,6 +298,8 @@ export default function Home() {
                 <img
                   className={styles.whatsAppIcon}
                   alt="WhatsApp"
+                  width={20}
+                  height={20}
                   src="https://res.cloudinary.com/aguadeira/image/upload/v1621877447/public/580b57fcd9996e24bc43c543_rq3rpg_1_hzqvlk.png"
                 />
               </ReactWhatsapp>
@@ -355,12 +359,16 @@ export default function Home() {
                   <img
                     src="https://res.cloudinary.com/aguadeira/image/upload/v1621878348/public/58e91afdeb97430e81906504_1_lsl4hy.png"
                     alt="Linkedin"
+                    width={20}
+                    height={20}
                   />
                 </li>
                 <li>
                   <img
                     src="https://res.cloudinary.com/aguadeira/image/upload/v1621878007/public/584ac2d03ac3a570f94a666d_1_hfppbn.png"
                     alt="Facebook"
+                    width={20}
+                    height={20}
                   />
                 </li>
               </ul>
@@ -370,6 +378,8 @@ export default function Home() {
                     <img
                       alt="WhatsApp"
                       src="https://res.cloudinary.com/aguadeira/image/upload/v1621877447/public/580b57fcd9996e24bc43c543_rq3rpg_1_hzqvlk.png"
+                      width={30}
+                      height={30}
                     />
                     55 11 95363-4019
                   </p>
@@ -377,6 +387,8 @@ export default function Home() {
                 <li>
                   <p>
                     <img
+                      width={30}
+                      height={30}
                       alt="Email"
                       src="https://res.cloudinary.com/aguadeira/image/upload/v1621877390/public/584856b4e0bb315b0f7675ac_1_1_kd0wv4.png"
                     />
