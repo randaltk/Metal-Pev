@@ -7,13 +7,13 @@ export default function Upload() {
     <>
       <form
         id="fs-frm"
-        accept-charset="utf-8"
+        acceptCharset="utf-8"
         onSubmit={handleSubmit}
         action="https://formspree.io/f/mdoygdoj"
         method="POST"
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
       >
-        <label for="Nome">Nome</label>
+        <label htmlFor="Nome">Nome</label>
         <input
           id="Nome"
           type="text"
@@ -22,7 +22,7 @@ export default function Upload() {
           required
         />
 
-        <label for="Email">Email</label>
+        <label htmlFor="Email">Email</label>
         <input
           type="text"
           name="email"
@@ -30,7 +30,7 @@ export default function Upload() {
           placeholder="Digite seu e-mail"
           required
         />
-        <label for="Telefone">Telefone</label>
+        <label htmlFor="Telefone">Telefone</label>
         <input
           id="Telefone"
           placeholder="55 11 98876-5432"
@@ -39,7 +39,7 @@ export default function Upload() {
           required
         />
 
-        <label for="Mensagem">Mensagem</label>
+        <label htmlFor="Mensagem">Mensagem</label>
         <textarea id="Mensagem" type="text" name="message" required />
 
         {state.succeeded ? (
