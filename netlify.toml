@@ -6,6 +6,3 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--version"
   YARN_VERSION = "1.22.22"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
