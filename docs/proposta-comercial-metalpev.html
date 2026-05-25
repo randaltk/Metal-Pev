@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Comercial — Redesign Site MetalPev</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #8B1A1A;
+      --primary-dark: #6B1414;
+      --accent: #0097C3;
+      --dark: #1A1F26;
+      --gray-700: #4A5568;
+      --gray-500: #718096;
+      --gray-200: #E2E8F0;
+      --gray-100: #F7FAFC;
+      --white: #FFFFFF;
+      --success: #276749;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: #fff;
+      font-size: 10.5pt;
+    }
+
+    @page {
+      size: A4;
+      margin: 18mm 16mm 22mm 16mm;
+    }
+
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { page-break-after: always; break-after: page; }
+      .page:last-child { page-break-after: avoid; }
+      .no-break { page-break-inside: avoid; }
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 277mm;
+      padding: 0;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* COVER */
+    .cover {
+      background: linear-gradient(145deg, var(--dark) 0%, #2D3748 45%, var(--primary-dark) 100%);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28mm 20mm 24mm;
+      min-height: 277mm;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cover h1 {
+      font-size: 32pt;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 24px 0 12px;
+    }
+
+    .cover h1 span { color: #FEB2B2; }
+
+    .cover-sub {
+      font-size: 13pt;
+      opacity: 0.9;
+      max-width: 420px;
+      line-height: 1.5;
+    }
+
+    .cover-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .cover-meta dt {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.65;
+      margin-bottom: 2px;
+    }
+
+    .cover-meta dd {
+      font-size: 10pt;
+      font-weight: 600;
+    }
+
+    .cover-logo {
+      font-size: 22pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .cover-logo span { color: var(--accent); }
+
+    /* CONTENT PAGES */
+    .content {
+      padding: 14mm 18mm 18mm;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .page-header .brand {
+      font-weight: 800;
+      font-size: 11pt;
+      color: var(--primary);
+    }
+
+    .page-header .page-num {
+      font-size: 8pt;
+      color: var(--gray-500);
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 16pt;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 .accent-bar {
+      display: block;
+      width: 48px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), #C53030);
+      border-radius: 2px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 16px 0 8px;
+    }
+
+    h4 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin: 10px 0 4px;
+      color: var(--dark);
+    }
+
+    p { margin-bottom: 8px; color: var(--gray-700); }
+
+    .lead {
+      font-size: 11pt;
+      color: var(--gray-700);
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+
+    ul, ol { margin: 6px 0 12px 18px; color: var(--gray-700); }
+    li { margin-bottom: 4px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 12px 0;
+    }
+
+    .card {
+      background: var(--gray-100);
+      border-radius: 8px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .card h4 { margin-top: 0; color: var(--primary); }
+
+    .card p { font-size: 9pt; margin: 0; }
+
+    .alert-box {
+      background: #FFF5F5;
+      border: 1px solid #FEB2B2;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+
+    .alert-box strong { color: var(--primary); }
+
+    .success-box {
+      background: #F0FFF4;
+      border: 1px solid #9AE6B4;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 9pt;
+    }
+
+    th {
+      background: var(--dark);
+      color: white;
+      text-align: left;
+      padding: 8px 10px;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: var(--gray-100); }
+
+    .tag {
+      display: inline-block;
+      background: #FED7D7;
+      color: var(--primary-dark);
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+
+    .tag.ok { background: #C6F6D5; color: var(--success); }
+
+    /* MOCKUP */
+    .mockup-wrapper {
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 14px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .mockup-browser {
+      background: #EDF2F7;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 7.5pt;
+      color: var(--gray-500);
+    }
+
+    .mockup-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .mockup-dot.r { background: #FC8181; }
+    .mockup-dot.y { background: #F6E05E; }
+    .mockup-dot.g { background: #68D391; }
+
+    .mockup-url {
+      flex: 1;
+      background: white;
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-left: 8px;
+      font-size: 7pt;
+      color: var(--gray-700);
+    }
+
+    .mockup-site {
+      background: #fff;
+    }
+
+    .mock-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: white;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .mock-logo {
+      font-weight: 800;
+      font-size: 9pt;
+      color: var(--primary);
+    }
+
+    .mock-menu {
+      display: flex;
+      gap: 12px;
+      font-size: 6.5pt;
+      color: var(--gray-700);
+      font-weight: 600;
+    }
+
+    .mock-cta {
+      background: var(--primary);
+      color: white;
+      font-size: 6pt;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .mock-hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #2D3748 60%, var(--primary-dark) 100%);
+      color: white;
+      padding: 24px 20px;
+      text-align: left;
+    }
+
+    .mock-hero h5 {
+      font-size: 14pt;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .mock-hero p {
+      font-size: 7pt;
+      opacity: 0.85;
+      color: #E2E8F0;
+      margin-bottom: 10px;
+      max-width: 280px;
+    }
+
+    .mock-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mock-btn-primary {
+      background: var(--primary);
+      color: white;
+      font-size: 6.5pt;
+      padding: 5px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+    }
+
+    .mock-btn-outline {
+      border: 1px solid rgba(255,255,255,0.5);
+      color: white;
+      font-size: 6.5pt;
+      padding: 5px 12px;
+      border-radius: 14px;
+    }
+
+    .mock-stats {
+      display: flex;
+      gap: 16px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .mock-stat strong {
+      display: block;
+      font-size: 10pt;
+      color: var(--accent);
+    }
+
+    .mock-stat span {
+      font-size: 6pt;
+      opacity: 0.75;
+      color: #CBD5E0;
+    }
+
+    .mock-sections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--gray-100);
+    }
+
+    .mock-card {
+      background: white;
+      border-radius: 6px;
+      padding: 10px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .mock-card-icon {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--primary), #C53030);
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+
+    .mock-card h6 {
+      font-size: 7pt;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: var(--dark);
+    }
+
+    .mock-card p {
+      font-size: 5.5pt;
+      color: var(--gray-500);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .mock-footer-preview {
+      background: var(--dark);
+      color: #A0AEC0;
+      padding: 10px 16px;
+      font-size: 5.5pt;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* PRICING */
+    .pricing-box {
+      background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+      color: white;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .pricing-box .label {
+      font-size: 9pt;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pricing-box .price {
+      font-size: 36pt;
+      font-weight: 800;
+      margin: 4px 0;
+      color: #FEB2B2;
+    }
+
+    .pricing-box .note {
+      font-size: 8.5pt;
+      opacity: 0.85;
+    }
+
+    .includes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .include-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 9pt;
+      color: var(--gray-700);
+    }
+
+    .include-item::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .timeline {
+      display: flex;
+      gap: 0;
+      margin: 14px 0;
+    }
+
+    .timeline-step {
+      flex: 1;
+      text-align: center;
+      padding: 10px 6px;
+      background: var(--gray-100);
+      border-top: 3px solid var(--primary);
+      font-size: 8pt;
+    }
+
+    .timeline-step strong {
+      display: block;
+      font-size: 9pt;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .timeline-step + .timeline-step {
+      border-left: 1px solid var(--gray-200);
+    }
+
+    .signature-block {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .sig-line {
+      border-bottom: 1px solid var(--dark);
+      width: 220px;
+      margin: 32px 0 6px;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .comparison-col {
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 8.5pt;
+    }
+
+    .comparison-col.before {
+      background: #FFF5F5;
+      border: 1px solid #FEB2B2;
+    }
+
+    .comparison-col.after {
+      background: #F0FFF4;
+      border: 1px solid #9AE6B4;
+    }
+
+    .comparison-col h4 {
+      font-size: 9pt;
+      margin-bottom: 8px;
+    }
+
+    .comparison-col.before h4 { color: #C53030; }
+    .comparison-col.after h4 { color: var(--success); }
+
+    .comparison-col ul { margin-left: 14px; font-size: 8.5pt; }
+  </style>
+</head>
+<body>
+
+<!-- PÁGINA 1 — CAPA -->
+<div class="page cover">
+  <div>
+    <div class="cover-logo">Metal<span>Pev</span></div>
+    <div style="margin-top: 40px;">
+      <span class="cover-badge">Proposta Comercial · Confidencial</span>
+      <h1>Redesign Completo do <span>Site Institucional</span></h1>
+      <p class="cover-sub">
+        Modernização visual e estrutural do site MetalPev Caldeiraria &amp; Instalações Industriais — 
+        nova presença digital, melhor experiência do usuário e posicionamento no Google.
+      </p>
+    </div>
+  </div>
+  <dl class="cover-meta">
+    <div>
+      <dt>Cliente</dt>
+      <dd>MetalPev Caldeiraria &amp; Instalações Industriais</dd>
+    </div>
+    <div>
+      <dt>Data da proposta</dt>
+      <dd>21 de maio de 2026</dd>
+    </div>
+    <div>
+      <dt>Validade</dt>
+      <dd>30 dias</dd>
+    </div>
+    <div>
+      <dt>Investimento</dt>
+      <dd>R$ 1.000,00 (pacote completo)</dd>
+    </div>
+  </dl>
+</div>
+
+<!-- PÁGINA 2 — SUMÁRIO EXECUTIVO -->
+<div class="page">
+  <div class="content">
+    <div class="page-header">
+      <span class="brand">MetalPev · Proposta Comercial</span>
+      <span class="page-num">02</span>
+    </div>
+
+    <h2><span class="accent-bar"></span>Sumário Executivo</h2>
+    <p class="lead">
+      O site atual da MetalPev foi desenvolvido há mais de 4 anos e, embora funcional, 
+      apresenta limitações significativas em design, estrutura, SEO e experiência mobile 
+      que impactam diretamente a credibilidade da marca e a captação de novos clientes 
+      no setor industrial.
+    </p>
+
+    <p>
+      Esta proposta apresenta um <strong>redesign completo</strong> do site institucional, 
+      transformando a página única com rolagem contínua em um site moderno, profissional 
+      e multi-páginas, otimizado para conversão, performance e mecanismos de busca.
+    </p>
+
+    <div class="grid-2 no-break">
+      <div class="card">
+        <h4>Objetivo principal</h4>
+        <p>Reposicionar a MetalPev digitalmente como referência em caldeiraria, NR-13 e instalações industriais na região de São Bernardo do Campo e Grande ABC.</p>
+      </div>
+      <div class="card">
+        <h4>Resultado esperado</h4>
+        <p>Site rápido, responsivo, com páginas dedicadas, formulário integrado ao WhatsApp, domínio .com.br profissional e SEO básico configurado.</p>
+      </div>
+    </div>
+
+    <h3>Principais entregas</h3>
+    <div class="includes-grid no-break">
+      <div class="include-item">Redesign visual completo e moderno</div>
+      <div class="include-item">Arquitetura multi-páginas (não mais one-page)</div>
+      <div class="include-item">Página de contato dedicada</div>
+      <div class="include-item">Formulário integrado ao WhatsApp</div>
+      <div class="include-item">Revisão e atualização de conteúdos</div>
+      <div class="include-item">SEO básico + Google Search Console</div>
+      <div class="include-item">Domínio .com.br — compra e configuração</div>
+      <div class="include-item">Publicação + suporte pós-entrega</div>
+    </div>
+
+    <div class="pricing-box no-break">
+      <div class="label">Investimento total do projeto</div>
+      <div class="price">R$ 1.000,00</div>
+      <div class="note">Valor fixo · Pacote completo · Sem custos ocultos de desenvolvimento</div>
+    </div>
+  </div>
+</div>
+
+<!-- PÁGINA 3 — ANÁLISE DO SITE ATUAL -->
+<div class="page">
+  <div class="content">
+    <div class="page-header">
+      <span class="brand">MetalPev · Proposta Comercial</span>
+      <span class="page-num">03</span>
+    </div>
+
+    <h2><span class="accent-bar"></span>Análise do Site Atual</h2>
+    <p class="lead">
+      Análise técnica e de experiência realizada sobre o site em produção 
+      (<em>http://localhost:3000/</em> — ambiente local equivalente ao site publicado), 
+      desenvolvido em Next.js com estrutura de página única.
+    </p>
+
+    <h3>Diagnóstico geral</h3>
+    <table class="no-break">
+      <thead>
+        <tr>
+          <th style="width:28%">Critério</th>
+          <th style="width:14%">Status</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Estrutura</strong></td>
+          <td><span class="tag">Crítico</span></td>
+          <td>Site em formato one-page com navegação por âncoras (#home, #sobre, #empresa). Não possui URLs dedicadas por seção, prejudicando SEO e compartilhamento.</td>
+        </tr>
+        <tr>
+          <td><strong>Design visual</strong></td>
+          <td><span class="tag">Desatualizado</span></td>
+          <td>Layout de 2021, imagens genéricas via CDN externo (Cloudinary), paleta e tipografia sem identidade visual refinada. Copyright exibe "MetalPev 2021".</td>
+        </tr>
+        <tr>
+          <td><strong>Conteúdo</strong></td>
+          <td><span class="tag">Fraco</span></td>
+          <td>Textos repetitivos nos cards de serviços (ex.: "Adequação a norma NR 13" repetido como título e descrição). Erros ortográficos: "instalacões", "mesaninos". Hero sem descrição.</td>
+        </tr>
+        <tr>
+          <td><strong>SEO</strong></td>
+          <td><span class="tag">Crítico</span></td>
+          <td>Apenas meta description genérica. Ausência de Open Graph, títulos por página, sitemap.xml, robots.txt, dados estruturados (Schema.org) e palavras-chave estratégicas.</td>
+        </tr>
+        <tr>
+          <td><strong>Mobile</strong></td>
+          <td><span class="tag">Parcial</span></td>
+          <td>Ícone de menu hambúrguer (≡) visível, porém menu oculto sem funcionalidade de abertura implementada. Layout com floats que quebram em telas pequenas.</td>
+        </tr>
+        <tr>
+          <td><strong>Performance</strong></td>
+          <td><span class="tag">Médio</span></td>
+          <td>Múltiplas imagens pesadas carregadas de CDN externo sem otimização WebP local. Dependência de recursos de terceiros (conta Cloudinary "aguadeira").</td>
+        </tr>
+        <tr>
+          <td><strong>Contato / Conversão</strong></td>
+          <td><span class="tag">Limitado</span></td>
+          <td>Botão WhatsApp apenas na seção contato. Formulário no rodapé via Formspree (serviço externo), sem integração direta ao WhatsApp nem página de contato dedicada.</td>
+        </tr>
+        <tr>
+          <td><strong>Redes sociais</strong></td>
+          <td><span class="tag">Incompleto</span></td>
+          <td>Ícones de LinkedIn e Facebook sem links clicáveis configurados.</td>
+        </tr>
+        <tr>
+          <td><strong>Domínio</strong></td>
+          <td><span class="tag">A definir</span></td>
+          <td>Necessidade de domínio profissional .com.br (ex.: metalpev.com.br) para credibilidade e SEO local.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box no-break">
+      <strong>Conclusão da análise:</strong> O site cumpre função básica de vitrine, mas não reflete 
+      o porte e a especialização técnica da MetalPev. A modernização é essencial para transmitir 
+      confiança a empresas industriais que buscam serviços de caldeiraria, NR-13 e instalações.
+    </div>
+  </div>
+</div>
+
+<!-- PÁGINA 4 — COMPARATIVO E MELHORIAS -->
+<div class="page">
+  <div class="content">
+    <div class="page-header">
+      <span class="brand">MetalPev · Proposta Comercial</span>
+      <span class="page-num">04</span>
+    </div>
+
+    <h2><span class="accent-bar"></span>Sugestões de Melhorias</h2>
+
+    <div class="comparison no-break">
+      <div class="comparison-col before">
+        <h4>❌ Situação atual</h4>
+        <ul>
+          <li>Página única com scroll longo</li>
+          <li>Menu mobile não funcional</li>
+          <li>Sem SEO estruturado</li>
+          <li>Imagens de terceiros desatualizadas</li>
+          <li>Textos genéricos e repetidos</li>
+          <li>Formulário Formspree desconectado</li>
+          <li>Redes sociais sem links</li>
+          <li>Visual datado (2021)</li>
+        </ul>
+      </div>
+      <div class="comparison-col after">
+        <h4>✅ Proposta de redesign</h4>
+        <ul>
+          <li>Site multi-páginas com URLs próprias</li>
+          <li>Menu responsivo funcional</li>
+          <li>SEO on-page + sitemap + meta tags</li>
+          <li>Imagens otimizadas e seções visuais novas</li>
+          <li>Conteúdo revisado e profissional</li>
+          <li>Formulário → WhatsApp automático</li>
+          <li>Links sociais configurados</li>
+          <li>Design moderno, limpo e industrial</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Design &amp; Experiência do Usuário (UX/UI)</h3>
+    <ul>
+      <li><strong>Identidade visual renovada</strong> — Paleta industrial (vermelho MetalPev + tons escuros + acentos em azul técnico), tipografia moderna (Inter / similar), espaçamento generoso e hierarquia visual clara.</li>
+      <li><strong>Hero impactante</strong> — Banner com proposta de valor clara, CTA "Solicitar orçamento" e "Falar no WhatsApp" em destaque.</li>
+      <li><strong>Cards de serviços redesenhados</strong> — Grid responsivo com ícones, descrições únicas e links para páginas individuais de cada serviço.</li>
+      <li><strong>Seções estratégicas novas</strong> — Depoimentos / cases, certificações NR-13, área de atuação (mapa/região), FAQ e barra de confiança (anos de experiência, projetos entregues).</li>
+      <li><strong>Botão flutuante WhatsApp</strong> — Visível em todas as páginas para conversão imediata.</li>
+    </ul>
+
+    <h3>SEO &amp; Google</h3>
+    <ul>
+      <li>Títulos e meta descriptions únicos por página</li>
+      <li>Tags Open Graph para compartilhamento no WhatsApp e redes sociais</li>
+      <li>Arquivo sitemap.xml e robots.txt</li>
+      <li>Dados estruturados LocalBusiness + Service (Schema.org)</li>
+      <li>Otimização de velocidade (Core Web Vitals)</li>
+      <li>Cadastro no Google Search Console e Google Meu Negócio (orientação)</li>
+      <li>Palavras-chave: caldeiraria industrial, NR-13, vasos de pressão, São Bernardo do Campo</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PÁGINA 5 — ESCOPO DETALHADO -->
+<div class="page">
+  <div class="content">
+    <div class="page-header">
+      <span class="brand">MetalPev · Proposta Comercial</span>
+      <span class="page-num">05</span>
+    </div>
+
+    <h2><span class="accent-bar"></span>Escopo Detalhado do Projeto</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:5%">#</th>
+          <th style="width:32%">Entrega</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Repaginação completa do layout</strong></td>
+          <td>Novo design system: cores, tipografia, componentes, header fixo, footer estruturado e layout grid moderno substituindo floats e estrutura legada.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Arquitetura multi-páginas</strong></td>
+          <td>
+            <strong>Home</strong> · <strong>Sobre a empresa</strong> · <strong>Serviços</strong> (listagem) · 
+            <strong>Páginas individuais de serviço</strong> (Caldeiras, Válvulas, Escadas, Manifolds, NR-13, Soldas, etc.) · 
+            <strong>Contato</strong>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Atualização de textos</strong></td>
+          <td>Revisão ortográfica, textos únicos por serviço, tom profissional B2B industrial, destaque para NR-13 e diferenciais competitivos.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Novos elementos visuais</strong></td>
+          <td>Seções de diferenciais, números/estatísticas, galeria de projetos, ícones SVG, banners otimizados e CTAs estratégicos.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Página de contato dedicada</strong></td>
+          <td>Página exclusiva com formulário, mapa/endereço, telefone, e-mail, horário de atendimento e botões de ação.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Formulário → WhatsApp</strong></td>
+          <td>Formulário que monta mensagem automática e redireciona para WhatsApp (55 11 95363-4019) com nome, e-mail, telefone e mensagem do cliente.</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Site responsivo</strong></td>
+          <td>Layout mobile-first testado em smartphones, tablets e desktops. Menu hambúrguer funcional.</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>Performance</strong></td>
+          <td>Imagens em formatos modernos (WebP/AVIF), lazy loading, minificação, cache e build otimizado Next.js.</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><strong>SEO básico</strong></td>
+          <td>Meta tags, sitemap, robots.txt, Schema.org, URLs amigáveis e configuração inicial para indexação Google.</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>Domínio .com.br</strong></td>
+          <td>Orientação/aquisição de domínio (ex. metalpev.com.br), configuração DNS, SSL (HTTPS) e apontamento para hospedagem.</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><strong>Publicação</strong></td>
+          <td>Deploy em hospedagem moderna (Vercel/Netlify ou similar), testes finais e entrega do site no ar.</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>Suporte pós-entrega</strong></td>
+          <td>Período de suporte e manutenção inicial para correções, ajustes de conteúdo e dúvidas após go-live.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PÁGINA 6 — CONCEITO VISUAL -->
+<div class="page">
+  <div class="content">
+    <div class="page-header">
+      <span class="brand">MetalPev · Proposta Comercial</span>
+      <span class="page-num">06</span>
+    </div>
+
+    <h2><span class="accent-bar"></span>Conceito Visual — Novo Site</h2>
+    <p class="lead">
+      Preview conceitual da abordagem de redesign: layout limpo, profissional e orientado 
+      à conversão, mantendo a identidade MetalPev com visual industrial moderno.
+    </p>
+
+    <div class="mockup-wrapper no-break">
+      <div class="mockup-browser">
+        <span class="mockup-dot r"></span>
+        <span class="mockup-dot y"></span>
+        <span class="mockup-dot g"></span>
+        <span class="mockup-url">https://www.metalpev.com.br</span>
+      </div>
+      <div class="mockup-site">
+        <div class="mock-nav">
+          <span class="mock-logo">MetalPev</span>
+          <div class="mock-menu">
+            <span>Home</span>
+            <span>Sobre</span>
+            <span>Serviços</span>
+            <span>NR-13</span>
+            <span>Contato</span>
+          </div>
+          <span class="mock-cta">Orçamento</span>
+        </div>
+        <div class="mock-hero">
+          <h5>Caldeiraria &amp; Instalações Industriais de Excelência</h5>
+          <p>Especialistas em NR-13, caldeiras, vasos de pressão, soldas e instalações industriais no ABC Paulista.</p>
+          <div class="mock-btns">
+            <span class="mock-btn-primary">Solicitar Orçamento</span>
+            <span class="mock-btn-outline">WhatsApp</span>
+          </div>
+          <div class="mock-stats">
+            <div class="mock-stat"><strong>15+</strong><span>Anos de experiência</span></div>
+            <div class="mock-stat"><strong>NR-13</strong><span>Especialistas certificados</span></div>
+            <div class="mock-stat"><strong>100%</strong><span>Foco em segurança</span></div>
+          </div>
+        </div>
+        <div class="mock-sections">
+          <div class="mock-card">
+            <div class="mock-card-icon"></div>
+            <h6>Caldeiras</h6>
+            <p>Projeto, fabricação, instalação e manutenção de caldeiras industriais.</p>
+          </div>
+          <div class="mock-card">
+            <div class="mock-card-icon"></div>
+            <h6>NR-13</h6>
+            <p>Adequação completa à norma regulamentadora com laudos e inspeções.</p>
+          </div>
+          <div class="mock-card">
+            <div class="mock-card-icon"></div>
+            <h6>Soldas &amp; Inspeção</h6>
+            <p>LP, ultrassom, partícula magnética e inspeção visual certificada.</p>
+          </div>
+        </div>
+        <div class="mock-footer-preview">
+          <span>© 2026 MetalPev · Todos os direitos reservados</span>
+          <span>SBC · SP · (11) 95363-4019</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Diretrizes de design</h3>
+    <div class="grid-2 no-break">
+      <div class="card">
+        <h4>Paleta de cores</h4>
+        <p>Vermelho industrial (#8B1A1A), grafite escuro (#1A1F26), azul técnico (#0097C3) e neutros claros para fundos e respiro visual.</p>
+      </div>
+      <div class="card">
+        <h4>Tipografia</h4>
+        <p>Fonte sans-serif moderna (Inter), títulos bold, corpo legível — transmite solidez e tecnologia industrial.</p>
+      </div>
+      <div class="card">
+        <h4>Tom de comunicação</h4>
+        <p>Profissional, direto, técnico e confiável — voltado a gestores de manutenção, engenheiros e empresas do setor industrial.</p>
+      </div>
+      <div class="card">
+        <h4>Conversão</h4>
+        <p>CTAs visíveis, WhatsApp em todas as páginas, formulário simplificado e prova social (cases, certificações).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PÁGINA 7 — CRONOGRAMA E INVESTIMENTO -->
+<div class="page">
+  <div class="content">
+    <div class="page-header">
+      <span class="brand">MetalPev · Proposta Comercial</span>
+      <span class="page-num">07</span>
+    </div>
+
+    <h2><span class="accent-bar"></span>Cronograma Estimado</h2>
+    <div class="timeline no-break">
+      <div class="timeline-step">
+        <strong>Semana 1</strong>
+        Briefing, estrutura de páginas, wireframes e aprovação do conceito visual
+      </div>
+      <div class="timeline-step">
+        <strong>Semana 2</strong>
+        Desenvolvimento front-end, conteúdos, formulário WhatsApp e páginas de serviço
+      </div>
+      <div class="timeline-step">
+        <strong>Semana 3</strong>
+        SEO, domínio, testes mobile/desktop, publicação e entrega
+      </div>
+    </div>
+    <p style="font-size:8.5pt; color: var(--gray-500);">
+      * Prazo total estimado: <strong>15 a 21 dias úteis</strong> após aprovação da proposta e recebimento do material (logo, fotos, textos complementares).
+    </p>
+
+    <h2 style="margin-top: 20px;"><span class="accent-bar"></span>Investimento</h2>
+
+    <div class="pricing-box no-break">
+      <div class="label">Valor total do projeto</div>
+      <div class="price">R$ 1.000,00</div>
+      <div class="note">Pagamento: 50% na aprovação · 50% na entrega (negociável)</div>
+    </div>
+
+    <h3>O valor inclui</h3>
+    <div class="includes-grid no-break">
+      <div class="include-item">Desenvolvimento completo do novo site</div>
+      <div class="include-item">Repaginação visual e estrutural</div>
+      <div class="include-item">Configuração e apontamento de domínio .com.br</div>
+      <div class="include-item">SEO básico (meta tags, sitemap, Schema)</div>
+      <div class="include-item">Publicação em hospedagem</div>
+      <div class="include-item">Formulário integrado ao WhatsApp</div>
+      <div class="include-item">Site 100% responsivo</div>
+      <div class="include-item">Suporte e manutenção inicial pós-entrega</div>
+    </div>
+
+    <div class="success-box no-break">
+      <strong>Não incluso (opcional / custo do cliente):</strong> Registro anual do domínio .com.br (~R$ 40/ano), 
+      custos de hospedagem premium (se aplicável) e produção de fotos/vídeos profissionais de obras 
+      (podem ser adicionados posteriormente).
+    </div>
+
+    <h3>Próximos passos</h3>
+    <ol>
+      <li>Aprovação desta proposta pelo cliente</li>
+      <li>Envio de materiais: logo em alta, fotos de obras, textos adicionais e redes sociais</li>
+      <li>Início do desenvolvimento conforme cronograma</li>
+      <li>Apresentação de preview para validação</li>
+      <li>Publicação, treinamento básico e suporte pós-entrega</li>
+    </ol>
+
+    <div class="signature-block no-break">
+      <p style="font-size:9pt; color: var(--gray-500);">
+        Esta proposta foi elaborada com base na análise técnica do site MetalPev atual e nas necessidades 
+        de modernização digital da empresa. Estamos à disposição para esclarecer dúvidas e iniciar o projeto.
+      </p>
+      <div class="sig-line"></div>
+      <p><strong>Responsável pela proposta</strong></p>
+      <p style="font-size:9pt; color: var(--gray-500);">Desenvolvimento Web · MetalPev Digital</p>
+      <p style="font-size:9pt; margin-top: 8px;">
+        <strong>Contato:</strong> metalpev@gmail.com · WhatsApp: (11) 95363-4019
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

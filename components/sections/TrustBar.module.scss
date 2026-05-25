@@ -1,0 +1,49 @@
+@use "../../styles/tokens" as *;
+
+.trustBar {
+  background-color: $color-white;
+  padding-block: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid $color-gray-100;
+}
+
+.grid {
+  @include reset-list;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-6;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-3 0;
+}
+
+.icon {
+  color: $color-primary;
+  flex-shrink: 0;
+}
+
+.value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $color-gray-900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.label {
+  display: block;
+  font-size: $fs-small;
+  color: $color-gray-500;
+  font-weight: 500;
+}

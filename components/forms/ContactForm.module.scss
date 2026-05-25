@@ -1,0 +1,93 @@
+@use "../../styles/tokens" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  background-color: $color-white;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  border: 1px solid $color-gray-100;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  label {
+    font-size: $fs-small;
+    font-weight: 600;
+    color: $color-gray-900;
+
+    span {
+      color: $color-primary;
+    }
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid $color-gray-300;
+    border-radius: $radius-sm;
+    background-color: $color-white;
+    color: $color-gray-900;
+    transition: border-color $dur $ease, box-shadow $dur $ease;
+    width: 100%;
+    font-size: $fs-body;
+
+    &::placeholder {
+      color: $color-gray-500;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 4px rgba($color-primary, 0.12);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: $space-2;
+
+  button {
+    align-self: flex-start;
+  }
+}
+
+.note {
+  font-size: $fs-xs;
+  color: $color-gray-500;
+}
+
+.success {
+  margin: 0;
+  padding: $space-3 $space-4;
+  background-color: rgba($color-success, 0.08);
+  color: $color-success;
+  border-radius: $radius-sm;
+  border: 1px solid rgba($color-success, 0.2);
+  font-size: $fs-small;
+}

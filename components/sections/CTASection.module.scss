@@ -1,0 +1,45 @@
+@use "../../styles/tokens" as *;
+
+.card {
+  background:
+    radial-gradient(circle at 85% 25%, rgba($color-primary, 0.35), transparent 55%),
+    radial-gradient(circle at 10% 90%, rgba($color-accent, 0.18), transparent 60%),
+    linear-gradient(135deg, $color-graphite 0%, $color-dark 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-lg;
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: $space-12;
+  align-items: center;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-8;
+  }
+}
+
+.title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: $color-white;
+  margin: 0 0 $space-3;
+}
+
+.desc {
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: $lh-normal;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  align-items: stretch;
+
+  @media (min-width: $bp-sm) and (max-width: $bp-lg) {
+    flex-direction: row;
+  }
+}

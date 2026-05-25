@@ -1,0 +1,45 @@
+@use "../../styles/tokens" as *;
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  text-align: left;
+}
+
+.value {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.label {
+  font-size: $fs-small;
+  color: $color-gray-500;
+  font-weight: 500;
+}
+
+.tone-dark {
+  .value {
+    color: $color-white;
+  }
+  .label {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.tone-light {
+  .value {
+    color: $color-gray-900;
+  }
+  .label {
+    color: $color-gray-500;
+  }
+}
+
+.tone-primary {
+  .value {
+    color: $color-primary;
+  }
+}

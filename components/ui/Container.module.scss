@@ -1,0 +1,16 @@
+@use "../../styles/tokens" as *;
+
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-pad;
+}
+
+.narrow {
+  max-width: 880px;
+}
+
+.wide {
+  max-width: 1440px;
+}

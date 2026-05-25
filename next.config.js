@@ -1,7 +1,15 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+
   images: {
-    domains: ["res.cloudinary.com"],
-    target: "static",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
+    ],
   },
 
   async headers() {
@@ -19,3 +27,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = nextConfig;

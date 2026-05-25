@@ -1,0 +1,44 @@
+@use "../../styles/tokens" as *;
+
+.float {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.5rem);
+  bottom: clamp(1rem, 3vw, 1.5rem);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  padding: 0.85rem 1.25rem 0.85rem 0.9rem;
+  border-radius: $radius-pill;
+  background-color: $color-whatsapp;
+  color: $color-white;
+  font-weight: 600;
+  font-size: $fs-small;
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.42);
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.5s $ease, opacity 0.5s $ease, background-color $dur $ease,
+    box-shadow $dur $ease;
+
+  &:hover {
+    background-color: #1ebe57;
+    box-shadow: 0 16px 40px rgba(37, 211, 102, 0.5);
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.label {
+  @media (max-width: $bp-sm) {
+    display: none;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .float {
+    padding: 0.85rem;
+  }
+}

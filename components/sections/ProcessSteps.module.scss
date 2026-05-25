@@ -1,0 +1,90 @@
+@use "../../styles/tokens" as *;
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto $space-12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+}
+
+.title {
+  font-size: $fs-h1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.lead {
+  color: $color-gray-500;
+  font-size: 1.0625rem;
+  line-height: $lh-normal;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+  position: relative;
+  counter-reset: step;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  background-color: $color-white;
+  border: 1px solid $color-gray-100;
+  border-radius: $radius-md;
+  padding: $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  position: relative;
+  transition: transform $dur $ease, box-shadow $dur $ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+
+  h3 {
+    font-size: 1.0625rem;
+    margin: 0;
+    color: $color-gray-900;
+  }
+
+  p {
+    font-size: $fs-small;
+    color: $color-gray-500;
+    line-height: $lh-normal;
+    margin: 0;
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-2;
+}
+
+.num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $color-primary;
+  letter-spacing: -0.02em;
+}
+
+.icon {
+  color: $color-gray-500;
+}

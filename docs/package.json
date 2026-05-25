@@ -1,0 +1,12 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "main": "generate-pdf.js",
+  "scripts": {
+    "pdf": "node generate-pdf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

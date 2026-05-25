@@ -1,0 +1,81 @@
+@use "../../styles/tokens" as *;
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto $space-12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+}
+
+.title {
+  font-size: $fs-h1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.lead {
+  color: $color-gray-500;
+  font-size: 1.0625rem;
+}
+
+.list {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.item {
+  background-color: $color-white;
+  border: 1px solid $color-gray-100;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition: border-color $dur $ease, box-shadow $dur $ease;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.3);
+  }
+}
+
+.q {
+  width: 100%;
+  text-align: left;
+  padding: $space-4 $space-6;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: $color-gray-900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  background: none;
+  border: none;
+
+  svg {
+    flex-shrink: 0;
+    color: $color-primary;
+  }
+}
+
+.a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height $dur-slow $ease, padding $dur $ease;
+  padding: 0 $space-6;
+
+  p {
+    color: $color-gray-700;
+    line-height: $lh-normal;
+    font-size: $fs-body;
+    padding-bottom: $space-6;
+    margin: 0;
+  }
+}
+
+.aOpen {
+  max-height: 480px;
+}

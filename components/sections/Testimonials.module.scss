@@ -1,0 +1,82 @@
+@use "../../styles/tokens" as *;
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto $space-12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+}
+
+.title {
+  font-size: $fs-h1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  padding: $space-8;
+  border-radius: $radius-md;
+  background-color: $color-gray-50;
+  border: 1px solid $color-gray-100;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  height: 100%;
+}
+
+.icon {
+  color: rgba($color-primary, 0.3);
+}
+
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  color: $color-warning;
+}
+
+.quote {
+  font-size: 1.0625rem;
+  line-height: $lh-normal;
+  color: $color-gray-700;
+  margin: 0;
+  flex: 1;
+}
+
+.author {
+  font-size: $fs-small;
+  border-top: 1px solid $color-gray-100;
+  padding-top: $space-4;
+
+  strong {
+    display: block;
+    color: $color-gray-900;
+    font-weight: 600;
+  }
+
+  span {
+    color: $color-gray-500;
+  }
+}
+
+.note {
+  margin-top: $space-8;
+  font-size: $fs-xs;
+  color: $color-gray-500;
+  font-style: italic;
+  text-align: center;
+}

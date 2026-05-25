@@ -1,127 +1,118 @@
+@use "tokens" as *;
+
+:root {
+  --color-primary: #{$color-primary};
+  --color-primary-dark: #{$color-primary-dark};
+  --color-primary-light: #{$color-primary-light};
+  --color-accent: #{$color-accent};
+  --color-dark: #{$color-dark};
+  --color-graphite: #{$color-graphite};
+  --color-text: #{$color-gray-900};
+  --color-muted: #{$color-gray-500};
+  --color-bg: #{$color-white};
+  --color-bg-alt: #{$color-gray-50};
+  --color-border: #{$color-gray-300};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-inter, #{$font-sans});
+  font-size: $fs-body;
+  line-height: $lh-normal;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color $dur $ease;
 }
 
-* {
-  box-sizing: border-box;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @include focus-ring;
 }
 
-h1 {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 40px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 700;
+  line-height: $lh-tight;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
 }
 
 p {
-  margin-top: 5px;
-  font-size: 18px;
-  word-wrap: break-word;
+  margin: 0;
 }
 
-h2 {
-  word-wrap: break-word;
-  font-size: 35px;
+ul,
+ol {
+  margin: 0;
 }
 
-nav {
-  display: table;
-  margin: 0 auto;
-  height: auto;
-  margin: 0px;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0px;
-  display: table-cell;
-  vertical-align: middle;
-  margin: 0px;
-  padding: 0px;
-}
-ul {
-  box-shadow: black;
-}
-input::placeholder {
-  font-size: 0.7rem;
-  text-align: left;
-  margin-right: -20px;
-  font-style: italic;
-}
-
-input {
-  padding: 5px;
-  width: 80%;
-  border: none;
-  border-bottom-color: currentcolor;
-  border-bottom-style: none;
-  border-bottom-width: medium;
-  border-bottom: 2px #d4cfcf solid;
-  color: #000;
-  background-color: rgba(0, 0, 0, 0);
-  outline: none;
-  margin-top: 20px;
-  margin-block-end: 10px;
-}
-label {
-  font-size: 15px;
-  display: table;
-}
-textarea {
-  margin-top: 20px;
-
-  outline: none;
-  width: 80%;
-}
-@media only screen and (max-width: 800px) {
-  h1,
-  h2 {
-    font-size: 1.5em;
-  }
-  header {
-    height: auto;
-  }
-
-  nav {
-    display: initial;
-    margin-top: 15px;
-
-    flex: 1;
-    justify-content: flex-end;
-  }
-}
-.uploadcare--widget__button,
-.uploadcare--widget__button:hover {
-  padding: 10px;
-
-  background-color: #8a201af5;
-  border: 3px dashed rgba(39, 1, 1, 0.637);
-  border-radius: 0;
-  font-family: Sans-serif;
-  font-weight: 800;
-  margin-left: 5%;
-}
-
-.uploadcare--widget__button:hover {
-  background-color: #000;
+button {
+  font-family: inherit;
   cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
 }
 
-.uploader-demo-circle
-  .uploadcare--widget_status_loaded
-  .uploadcare--widget_status {
-  display: inline-block !important;
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }
-.uploader-demo-circle .uploadcare--progress_type_canvas {
-  color: #8a201af5;
-  border-color: #d4dfe5;
+
+::selection {
+  background-color: rgba($color-primary, 0.2);
+  color: $color-primary-dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

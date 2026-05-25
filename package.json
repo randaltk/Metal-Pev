@@ -3,18 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 7005",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start",
-    "export": "next export"
+    "start": "next start"
   },
   "dependencies": {
-    "@formspree/react": "^2.2.3",
-    "next": "^11.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-whatsapp": "^0.2.1",
-    "sass": "^1.32.13",
-    "prop-types": "^15.6.1"
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.16.0",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "sass": "^1.80.6"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }

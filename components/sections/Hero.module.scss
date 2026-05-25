@@ -1,0 +1,110 @@
+@use "../../styles/tokens" as *;
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  background-color: $color-dark;
+  color: $color-gray-100;
+  overflow: hidden;
+  min-height: clamp(560px, 80vh, 760px);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(4rem, 10vh, 6rem);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 20, 26, 0.2) 0%, rgba(15, 20, 26, 0.55) 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.title {
+  font-size: $fs-display;
+  font-weight: 800;
+  line-height: $lh-tight;
+  letter-spacing: -0.02em;
+  color: $color-white;
+  margin: 0;
+}
+
+.titleAccent {
+  background: linear-gradient(90deg, $color-primary-light 0%, $color-accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 62ch;
+  line-height: $lh-normal;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  margin-top: $space-2;
+}
+
+.bullets {
+  @include reset-list;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-6;
+  margin-top: $space-6;
+  padding-top: $space-6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: $fs-small;
+  color: rgba(255, 255, 255, 0.7);
+
+  li {
+    position: relative;
+    padding-left: 1.25rem;
+
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $color-primary-light;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .ctas > * {
+    width: 100%;
+  }
+  .bullets {
+    gap: $space-3;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,56 @@
+@use "../../styles/tokens" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.tone-light {
+  background-color: $color-white;
+  color: $color-gray-900;
+}
+
+.tone-alt {
+  background-color: $color-gray-50;
+  color: $color-gray-900;
+}
+
+.tone-dark {
+  background-color: $color-dark;
+  color: $color-gray-100;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $color-white;
+  }
+}
+
+.tone-graphite {
+  background: linear-gradient(180deg, $color-dark 0%, $color-graphite 100%);
+  color: $color-gray-100;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $color-white;
+  }
+}
+
+.spacing-default {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.spacing-tight {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.spacing-loose {
+  padding-block: clamp(5rem, 10vw, 8rem);
+}
+
+.spacing-none {
+  padding-block: 0;
+}

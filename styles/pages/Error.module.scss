@@ -1,0 +1,54 @@
+@use "../tokens" as *;
+
+.wrap {
+  background-color: $color-dark;
+  color: $color-gray-100;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-block: $space-16;
+  background:
+    radial-gradient(circle at 80% 20%, rgba($color-primary, 0.3), transparent 55%),
+    linear-gradient(180deg, $color-dark, $color-graphite);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  align-items: flex-start;
+  max-width: 560px;
+}
+
+.code {
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(90deg, $color-primary-light, $color-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.content h1 {
+  font-size: $fs-h1;
+  color: $color-white;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.content p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.0625rem;
+  line-height: $lh-normal;
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+  margin-top: $space-4;
+}

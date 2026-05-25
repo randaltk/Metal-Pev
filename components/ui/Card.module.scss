@@ -1,0 +1,37 @@
+@use "../../styles/tokens" as *;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius-md;
+  padding: $space-6;
+  box-shadow: $shadow-sm;
+  transition: transform $dur $ease, box-shadow $dur $ease, border-color $dur $ease;
+}
+
+.tone-light {
+  background-color: $color-white;
+  border: 1px solid $color-gray-100;
+}
+
+.tone-alt {
+  background-color: $color-gray-50;
+  border: 1px solid $color-gray-100;
+}
+
+.tone-dark {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: $color-gray-100;
+}
+
+.interactive {
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-primary, 0.25);
+  }
+}
