@@ -119,15 +119,25 @@
   justify-content: center;
   border-radius: $radius-sm;
   color: $color-gray-900;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     background-color: $color-gray-100;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
   }
 }
 
 .drawer {
   position: fixed;
-  inset: 72px 0 0 auto;
+  top: 64px;
+  right: 0;
+  bottom: 0;
   width: min(86vw, 360px);
   background-color: $color-white;
   box-shadow: $shadow-lg;
@@ -206,19 +216,33 @@
 
 @media (max-width: $bp-lg) {
   .nav,
-  .phone,
-  .ctaWrap {
+  .actions {
     display: none;
   }
   .bar {
     grid-template-columns: 1fr auto;
+    gap: $space-3;
+    min-height: 64px;
   }
   .burger {
     display: inline-flex;
   }
+  .logoMark {
+    width: 36px;
+    height: 36px;
+  }
+  .logoText strong {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: $bp-sm) {
+  .bar {
+    min-height: 60px;
+  }
+  .drawer {
+    top: 60px;
+  }
   .logoText small {
     display: none;
   }
