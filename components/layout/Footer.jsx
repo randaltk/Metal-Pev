@@ -17,6 +17,7 @@ function FacebookIcon(props) {
   );
 }
 import Container from "../ui/Container";
+import LogoMark from "../brand/LogoMark";
 import { SITE, SERVICES, NAV } from "../../lib/site";
 import styles from "./Footer.module.scss";
 
@@ -29,7 +30,7 @@ export default function Footer() {
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label={`${SITE.legalName} — página inicial`}>
-              <span className={styles.logoMark}>MP</span>
+              <LogoMark size={44} className={styles.logoMark} />
               <strong>MetalPev</strong>
             </Link>
             <p className={styles.tagline}>

@@ -4,6 +4,10 @@
   position: relative;
   isolation: isolate;
   background-color: $color-dark;
+  background-image: url("/images/hero-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: $color-gray-100;
   overflow: hidden;
   min-height: clamp(560px, 80vh, 760px);
@@ -19,12 +23,6 @@
     z-index: 0;
     pointer-events: none;
   }
-}
-
-.bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
 }
 
 .wrap {

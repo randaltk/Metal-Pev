@@ -1,5 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="12" fill="#8B1A1A"/>
-  <path d="M14 46V18l9 16 9-16v28" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M38 46V22h10a6 6 0 0 1 0 12h-10" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="bg" x1="3" y1="3" x2="61" y2="61" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#b32828"/>
+      <stop offset="55%" stop-color="#8b1a1a"/>
+      <stop offset="100%" stop-color="#560e0e"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="53" y1="0" x2="64" y2="11" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="spark" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f3fbff" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#5fd3f0" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#0097c3" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0097c3" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="badge-clip">
+      <path d="M 14,0 H 53 L 64,11 V 50 Q 64,64 50,64 H 14 Q 0,64 0,50 V 14 Q 0,0 14,0 Z"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#badge-clip)">
+    <path d="M 14,0 H 53 L 64,11 V 50 Q 64,64 50,64 H 14 Q 0,64 0,50 V 14 Q 0,0 14,0 Z" fill="url(#bg)"/>
+
+    <rect x="0" y="0" width="64" height="35" fill="url(#shine)"/>
+
+    <line x1="53" y1="0.6" x2="63.4" y2="11.2" stroke="url(#edge)" stroke-width="2" stroke-linecap="round"/>
+
+    <path d="M 11.5,14.4 L 21.1,14.4 L 31.3,32.8 L 31.3,44 L 21.1,28.5 L 21.1,52 L 11.5,52 Z" fill="#ffffff"/>
+    <path d="M 52.5,14.4 L 42.9,14.4 L 32.7,32.8 L 32.7,44 L 42.9,28.5 L 42.9,52 L 52.5,52 Z" fill="#ffffff"/>
+
+    <line x1="32" y1="33" x2="32" y2="43.8" stroke="#560e0e" stroke-opacity="0.55" stroke-width="1.1"/>
+    <circle cx="32" cy="36.2" r="1.36" fill="#ffffff"/>
+    <circle cx="32" cy="40.6" r="1.36" fill="#ffffff"/>
+    <circle cx="32" cy="36.2" r="0.5" fill="#5b0f0f" fill-opacity="0.55"/>
+    <circle cx="32" cy="40.6" r="0.5" fill="#5b0f0f" fill-opacity="0.55"/>
+
+    <rect x="14.4" y="56.3" width="35.2" height="2.24" rx="1" fill="#ffffff" fill-opacity="0.5"/>
+    <circle cx="16.6" cy="57.4" r="1.5" fill="#ffffff" fill-opacity="0.9"/>
+    <circle cx="47.4" cy="57.4" r="1.5" fill="#ffffff" fill-opacity="0.9"/>
+
+    <path d="M 14,1 H 53 L 63,11.2 V 50 Q 63,63 50.4,63 H 14 Q 1,63 1,50 V 14 Q 1,1 14,1 Z" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.1" fill="none"/>
+  </g>
+
+  <circle cx="58.2" cy="5.8" r="8.6" fill="url(#spark)"/>
+  <circle cx="58.2" cy="5.8" r="2.4" fill="#f6fcff"/>
+  <circle cx="58.2" cy="5.8" r="1" fill="#ffffff"/>
 </svg>

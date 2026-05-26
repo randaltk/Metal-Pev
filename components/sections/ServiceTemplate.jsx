@@ -118,6 +118,8 @@ export default function ServiceTemplate({ slug }) {
                     height={720}
                     sizes="(max-width: 900px) 100vw, 360px"
                     className={styles.mediaImg}
+                    priority
+                    fetchPriority="high"
                   />
                 </div>
               ) : null}

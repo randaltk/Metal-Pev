@@ -8,12 +8,52 @@
       <stop offset="0" stop-color="#8B1A1A"/>
       <stop offset="1" stop-color="#C53030"/>
     </linearGradient>
+    <linearGradient id="logo-bg" x1="5" y1="5" x2="87" y2="87" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#b32828"/>
+      <stop offset="55%" stop-color="#8b1a1a"/>
+      <stop offset="100%" stop-color="#560e0e"/>
+    </linearGradient>
+    <linearGradient id="logo-shine" x1="0" y1="0" x2="0" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="logo-edge" x1="76" y1="0" x2="92" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="logo-spark" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f3fbff" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#5fd3f0" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#0097c3" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0097c3" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="logo-clip">
+      <path d="M 20.7,0 H 75.9 L 92,16.1 V 71.3 Q 92,92 71.3,92 H 20.7 Q 0,92 0,71.3 V 20.7 Q 0,0 20.7,0 Z"/>
+    </clipPath>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="0" y="0" width="1200" height="6" fill="url(#accent)"/>
   <g transform="translate(80,120)">
-    <rect width="92" height="92" rx="16" fill="url(#accent)"/>
-    <text x="46" y="62" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800" fill="#fff" text-anchor="middle">MP</text>
+    <g clip-path="url(#logo-clip)">
+      <path d="M 20.7,0 H 75.9 L 92,16.1 V 71.3 Q 92,92 71.3,92 H 20.7 Q 0,92 0,71.3 V 20.7 Q 0,0 20.7,0 Z" fill="url(#logo-bg)"/>
+      <rect x="0" y="0" width="92" height="51" fill="url(#logo-shine)"/>
+      <line x1="75.9" y1="0.9" x2="91.1" y2="16.1" stroke="url(#logo-edge)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 16.6,20.7 L 30.4,20.7 L 45,47.2 L 45,63.3 L 30.4,41 L 30.4,74.8 L 16.6,74.8 Z" fill="#ffffff"/>
+      <path d="M 75.4,20.7 L 61.6,20.7 L 47,47.2 L 47,63.3 L 61.6,41 L 61.6,74.8 L 75.4,74.8 Z" fill="#ffffff"/>
+      <line x1="46" y1="47.4" x2="46" y2="63" stroke="#560e0e" stroke-opacity="0.55" stroke-width="1.6"/>
+      <circle cx="46" cy="52" r="2" fill="#ffffff"/>
+      <circle cx="46" cy="58.4" r="2" fill="#ffffff"/>
+      <circle cx="46" cy="52" r="0.75" fill="#5b0f0f" fill-opacity="0.55"/>
+      <circle cx="46" cy="58.4" r="0.75" fill="#5b0f0f" fill-opacity="0.55"/>
+      <rect x="20.7" y="81" width="50.6" height="3.2" rx="1.4" fill="#ffffff" fill-opacity="0.5"/>
+      <circle cx="23.9" cy="82.6" r="2.2" fill="#ffffff" fill-opacity="0.9"/>
+      <circle cx="68.1" cy="82.6" r="2.2" fill="#ffffff" fill-opacity="0.9"/>
+      <path d="M 20.7,1.4 H 75.9 L 90.6,16.1 V 71.3 Q 90.6,90.6 71.3,90.6 H 20.7 Q 1.4,90.6 1.4,71.3 V 20.7 Q 1.4,1.4 20.7,1.4 Z" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.6" fill="none"/>
+    </g>
+    <circle cx="83.7" cy="8.3" r="12.4" fill="url(#logo-spark)"/>
+    <circle cx="83.7" cy="8.3" r="3.5" fill="#f6fcff"/>
+    <circle cx="83.7" cy="8.3" r="1.4" fill="#ffffff"/>
   </g>
   <text x="80" y="320" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800" fill="#fff">MetalPev</text>
   <text x="80" y="380" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="600" fill="#D1D5DB">Caldeiraria &amp; Instalações Industriais</text>

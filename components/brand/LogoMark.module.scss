@@ -1,0 +1,24 @@
+.spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sparkPulse 2.6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes sparkPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spark {
+    animation: none;
+  }
+}

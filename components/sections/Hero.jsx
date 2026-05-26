@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
@@ -10,23 +8,8 @@ import styles from "./Hero.module.scss";
 export default function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
-      <div className={styles.bg} aria-hidden>
-        <Image
-          src="/images/hero-bg.svg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: "cover" }}
-        />
-      </div>
       <Container className={styles.wrap}>
-        <motion.div
-          className={styles.content}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
-        >
+        <div className={styles.content}>
           <Badge tone="dark" icon={ShieldCheck}>
             Especialistas em NR-13
           </Badge>
@@ -56,7 +39,7 @@ export default function Hero() {
             <li>Equipe técnica qualificada</li>
             <li>Atendimento ABC Paulista e Grande SP</li>
           </ul>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

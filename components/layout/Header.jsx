@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { Menu, X, Phone } from "lucide-react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
+import LogoMark from "../brand/LogoMark";
 import { NAV, SITE, whatsappUrl } from "../../lib/site";
 import styles from "./Header.module.scss";
 
@@ -45,7 +46,7 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <Container className={styles.bar}>
         <Link href="/" className={styles.logo} aria-label={`${SITE.legalName} — página inicial`}>
-          <span className={styles.logoMark}>MP</span>
+          <LogoMark size={42} className={styles.logoMark} />
           <span className={styles.logoText}>
             <strong>MetalPev</strong>
             <small>Caldeiraria & Instalações Industriais</small>

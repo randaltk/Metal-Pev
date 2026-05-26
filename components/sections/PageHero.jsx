@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Container from "../ui/Container";
@@ -25,19 +24,14 @@ export default function PageHero({ eyebrow, title, description, breadcrumbs = []
             </ol>
           </nav>
         ) : null}
-        <motion.div
-          className={styles.content}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.2, 0.7, 0.2, 1] }}
-        >
+        <div className={styles.content}>
           {eyebrow ? <Badge tone="dark">{eyebrow}</Badge> : null}
           <h1 id="page-hero-title" className={styles.title}>
             {title}
           </h1>
           {description ? <p className={styles.description}>{description}</p> : null}
           {children}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

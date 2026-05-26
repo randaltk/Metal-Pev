@@ -48,16 +48,9 @@
 }
 
 .logoMark {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
-  border-radius: $radius-sm;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: $color-white;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 6px 16px rgba($color-primary, 0.4));
 }
 
 .logo strong {
