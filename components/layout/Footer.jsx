@@ -30,8 +30,7 @@ export default function Footer() {
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label={`${SITE.legalName} — página inicial`}>
-              <LogoMark size={44} className={styles.logoMark} />
-              <strong>MetalPev</strong>
+              <LogoMark size={160} variant="icon" className={styles.logoMark} />
             </Link>
             <p className={styles.tagline}>
               Caldeiraria e instalações industriais com foco em segurança, conformidade NR-13 e prazo. Atendemos São

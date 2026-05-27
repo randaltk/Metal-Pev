@@ -1,120 +1,120 @@
-import { useId } from "react";
+import Image from "next/image";
 import styles from "./LogoMark.module.scss";
 
-/**
- * Monograma MetalPev — badge industrial com referências de caldeiraria:
- *  - Canto superior direito chanfrado (chapa cortada a plasma)
- *  - "M" formado por duas chapas soldadas com costura central + rebites
- *  - Fagulha de solda emergindo da aresta de corte
- *  - Highlight metálico no topo e na aresta chanfrada
- *  - Viga inferior com rebites laterais
- */
-export default function LogoMark({ size = 40, className, title }) {
-  const uid = useId().replace(/:/g, "");
-  const bgId = `lm-bg-${uid}`;
-  const shineId = `lm-shine-${uid}`;
-  const sparkId = `lm-spark-${uid}`;
-  const edgeId = `lm-edge-${uid}`;
-  const clipId = `lm-clip-${uid}`;
+// ---------------------------------------------------------------------------
+// Asset oficial do logo MetalPev hospedado no Cloudinary.
+// Lockup horizontal definitivo (brasão + wordmark "METALPEV CALDEIRARIA E
+// SOLDA" integrados na mesma arte), 1264×848. Já vem nas cores novas
+// (cinza grafite + vermelho carmim + azul aço) e ocupa todo o frame —
+// dispensa o padding/trim que precisávamos nas versões só-ícone.
+//
+// Outras versões já testadas, prontas para reverter trocando a constante:
+//   • Lockup horizontal anterior (brasão metálico, paleta antiga):
+//       PATH = "v1779822590/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A068c027963204a309b8481b60d07b88ce_kifwut.avif"
+//       TRANSFORMS = "e_background_removal/e_trim:10/c_pad,b_transparent,ar_1:1/f_png"
+//   • Ícone flat colorido (vermelho + cyan, com dropshadow nativo):
+//       PATH = "v1779822551/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A4a09baf91e9e49ec9cffd999af15674c2_a8fiu5.avif"
+//       TRANSFORMS = "e_background_removal/e_dropshadow:azimuth_220;elevation_60;spread_20/f_png"
+//   • Brasão metálico original + wordmark embutido (JPG):
+//       PATH = "v1779819223/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/Design_sem_nome_1.jpg_ejvx8t.jpg"
+//       TRANSFORMS = "e_background_removal/f_png"
+// ---------------------------------------------------------------------------
+const CLOUDINARY_BASE = "https://res.cloudinary.com/aguadeira/image/upload";
 
-  // Badge com chanfro de 7px no canto superior direito
-  const badgePath =
-    "M 9,0 H 33 L 40,7 V 31 Q 40,40 31,40 H 9 Q 0,40 0,31 V 9 Q 0,0 9,0 Z";
+// Lockup horizontal (brasão + wordmark "METALPEV CALDEIRARIA E SOLDA"),
+// usado no header e fundos claros.
+const LOCKUP_PUBLIC_PATH =
+  "v1779824047/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A55e35d41adcc45a893e83a3d1ff2efcdg_thlbwx.avif";
+
+// Pipeline do lockup completo (header / fundos claros):
+//   e_background_removal   remove o fundo branco da arte original via AI,
+//                          deixando o lockup com transparência real.
+//   e_trim:10              corta qualquer borda transparente residual,
+//                          garantindo que o lockup encoste nos limites
+//                          da imagem e não "encolha" dentro de padding.
+//   f_png                  transparência preservada; next/image reencoda
+//                          para WebP/AVIF na entrega.
+const FULL_TRANSFORMS = "e_background_removal/e_trim:10/f_png";
+
+// Dimensões reais do PNG entregue pelo Cloudinary APÓS o pipeline FULL
+// (consultadas via fl_getinfo: input 1264×848 → output 1115×360 depois do
+// background_removal + trim). O arquivo original tem ~488px de padding
+// transparente vertical; declarar as dimensões pós-trim alinha o aspect
+// reservado pelo next/image ao que de fato chega no navegador e mantém o
+// lockup ocupando toda a sua caixa — caso contrário o logo "encolhe"
+// porque o next/image reserva um retângulo de 1264×848 mas recebe 1115×360.
+const LOCKUP_WIDTH = 1115;
+const LOCKUP_HEIGHT = 360;
+
+// Brasão isolado (só ícone, sem wordmark) — versão flat colorida entregue
+// pelo cliente em 1024×1024 (engrenagem vermelha + "M" azul aço + maçarico).
+// Usado no footer, favicon e em qualquer lugar que precise do ícone em
+// aspect 1:1.
+//   e_background_removal         alpha real (sem fundo branco vazando sobre
+//                                fundos escuros do footer ou toolbar).
+//   e_trim:10                    remove o padding transparente em volta do
+//                                brasão (a arte original ocupa só ~60% do
+//                                frame de 1024×1024; sem trim o ícone ficava
+//                                visualmente pequeno dentro da sua caixa).
+//   c_pad,b_transparent,ar_1:1   garante aspect 1:1 após o trim, evitando
+//                                que o ícone fique levemente retangular se
+//                                a arte não for perfeitamente quadrada.
+//   f_png                        preserva alpha; next/image reencoda para
+//                                WebP/AVIF na entrega.
+const ICON_PUBLIC_PATH =
+  "v1779822551/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A4a09baf91e9e49ec9cffd999af15674c2_a8fiu5.png";
+const ICON_TRANSFORMS =
+  "e_background_removal/e_trim:10/c_pad,b_transparent,ar_1:1/f_png";
+// Dimensões reais do PNG após o pipeline ICON (consultadas via fl_getinfo:
+// 1024×1024 → 604×604 depois do trim). Declarar o tamanho pós-trim alinha o
+// aspect reservado pelo next/image ao que de fato chega no navegador.
+const ICON_SIZE = 604;
+
+const VARIANTS = {
+  full: {
+    src: `${CLOUDINARY_BASE}/${FULL_TRANSFORMS}/${LOCKUP_PUBLIC_PATH}`,
+    width: LOCKUP_WIDTH,
+    height: LOCKUP_HEIGHT,
+  },
+  icon: {
+    src: `${CLOUDINARY_BASE}/${ICON_TRANSFORMS}/${ICON_PUBLIC_PATH}`,
+    width: ICON_SIZE,
+    height: ICON_SIZE,
+  },
+};
+
+/**
+ * Logo institucional MetalPev — Caldeiraria & Solda.
+ * Renderiza o lockup horizontal oficial (brasão + wordmark) hospedado no
+ * Cloudinary, com fundo removido via AI.
+ *
+ * @param {number} size  Altura em px; a largura preserva o aspect real da variante (horizontal para "full", 1:1 para "icon").
+ * @param {"icon"|"full"} variant  "full" entrega o lockup horizontal completo (brasão + wordmark); "icon" entrega só o brasão recortado em aspect 1:1 (use em fundos escuros).
+ * @param {string} className
+ * @param {string} title  Quando informado, define alt acessível para a imagem.
+ * @param {boolean} priority  Encaminha para next/image (use no logo do header).
+ */
+export default function LogoMark({
+  size = 48,
+  variant = "icon",
+  className,
+  title,
+  priority = false,
+}) {
+  const v = VARIANTS[variant] ?? VARIANTS.icon;
+  const aspect = v.width / v.height;
+  const height = size;
+  const width = Math.round(size * aspect);
 
   return (
-    <svg
-      viewBox="0 0 40 40"
-      width={size}
-      height={size}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      role={title ? "img" : "presentation"}
-      aria-label={title || undefined}
-      aria-hidden={title ? undefined : "true"}
-      focusable="false"
-    >
-      <defs>
-        <linearGradient id={bgId} x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#b32828" />
-          <stop offset="55%" stopColor="#8b1a1a" />
-          <stop offset="100%" stopColor="#560e0e" />
-        </linearGradient>
-        <linearGradient id={shineId} x1="0" y1="0" x2="0" y2="22" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.34" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-        </linearGradient>
-        <linearGradient id={edgeId} x1="33" y1="0" x2="40" y2="7" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="50%" stopColor="#ffffff" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-        </linearGradient>
-        <radialGradient id={sparkId} cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%" stopColor="#f3fbff" stopOpacity="1" />
-          <stop offset="30%" stopColor="#5fd3f0" stopOpacity="0.95" />
-          <stop offset="70%" stopColor="#0097c3" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#0097c3" stopOpacity="0" />
-        </radialGradient>
-        <clipPath id={clipId}>
-          <path d={badgePath} />
-        </clipPath>
-      </defs>
-
-      <g clipPath={`url(#${clipId})`}>
-        <path d={badgePath} fill={`url(#${bgId})`} />
-
-        {/* Reflexo metálico no topo */}
-        <rect x="0" y="0" width="40" height="22" fill={`url(#${shineId})`} />
-
-        {/* Aresta chanfrada destacada (luz no corte) */}
-        <line
-          x1="33"
-          y1="0.4"
-          x2="39.6"
-          y2="7"
-          stroke={`url(#${edgeId})`}
-          strokeWidth="1.3"
-          strokeLinecap="round"
-        />
-
-        {/* "M" — chapa esquerda */}
-        <path
-          d="M 7.2,9 L 13.2,9 L 19.55,20.5 L 19.55,27.5 L 13.2,17.8 L 13.2,32.5 L 7.2,32.5 Z"
-          fill="#ffffff"
-        />
-        {/* "M" — chapa direita */}
-        <path
-          d="M 32.8,9 L 26.8,9 L 20.45,20.5 L 20.45,27.5 L 26.8,17.8 L 26.8,32.5 L 32.8,32.5 Z"
-          fill="#ffffff"
-        />
-        {/* Costura central (sombra de junção) */}
-        <line x1="20" y1="20.6" x2="20" y2="27.4" stroke="rgba(86,14,14,0.55)" strokeWidth="0.7" />
-        {/* Pontos de solda / rebites na costura */}
-        <circle cx="20" cy="22.6" r="0.85" fill="#ffffff" />
-        <circle cx="20" cy="25.4" r="0.85" fill="#ffffff" />
-        <circle cx="20" cy="22.6" r="0.32" fill="rgba(91,15,15,0.55)" />
-        <circle cx="20" cy="25.4" r="0.32" fill="rgba(91,15,15,0.55)" />
-
-        {/* Viga inferior (perfil rebitado) */}
-        <rect x="9" y="35.2" width="22" height="1.4" rx="0.6" fill="rgba(255,255,255,0.5)" />
-        <circle cx="10.4" cy="35.9" r="0.95" fill="rgba(255,255,255,0.9)" />
-        <circle cx="29.6" cy="35.9" r="0.95" fill="rgba(255,255,255,0.9)" />
-
-        {/* Borda interna sutil para definir o badge */}
-        <path
-          d="M 9,0.6 H 33 L 39.4,7 V 31 Q 39.4,39.4 31,39.4 H 9 Q 0.6,39.4 0.6,31 V 9 Q 0.6,0.6 9,0.6 Z"
-          stroke="rgba(255,255,255,0.18)"
-          strokeWidth="0.7"
-          fill="none"
-        />
-      </g>
-
-      {/* Fagulha de solda — emerge da aresta cortada, transborda o badge */}
-      <g className={styles.spark}>
-        <circle cx="36.4" cy="3.6" r="5.4" fill={`url(#${sparkId})`} />
-        <circle cx="36.4" cy="3.6" r="1.5" fill="#f6fcff" />
-        <circle cx="36.4" cy="3.6" r="0.6" fill="#ffffff" />
-      </g>
-    </svg>
+    <Image
+      src={v.src}
+      alt={title || "MetalPev — Caldeiraria & Solda"}
+      width={width}
+      height={height}
+      priority={priority}
+      sizes={`${width}px`}
+      className={`${styles.logo} ${styles[variant]} ${className || ""}`.trim()}
+    />
   );
 }

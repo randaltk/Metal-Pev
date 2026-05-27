@@ -46,11 +46,7 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <Container className={styles.bar}>
         <Link href="/" className={styles.logo} aria-label={`${SITE.legalName} — página inicial`}>
-          <LogoMark size={42} className={styles.logoMark} />
-          <span className={styles.logoText}>
-            <strong>MetalPev</strong>
-            <small>Caldeiraria & Instalações Industriais</small>
-          </span>
+          <LogoMark size={80} variant="full" priority className={styles.logoMark} />
         </Link>
 
         <nav className={styles.nav} aria-label="Navegação principal">
@@ -99,7 +95,7 @@ export default function Header() {
       <div
         id="mobile-drawer"
         className={`${styles.drawer} ${open ? styles.drawerOpen : ""}`}
-        aria-hidden={!open}
+        inert={!open || undefined}
       >
         <nav aria-label="Navegação mobile">
           <ul>

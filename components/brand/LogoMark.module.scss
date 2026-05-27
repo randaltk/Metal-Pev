@@ -1,24 +1,17 @@
-.spark {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: sparkPulse 2.6s ease-in-out infinite;
-  will-change: transform, opacity;
+@use "../../styles/tokens" as *;
+
+.logo {
+  display: block;
+  flex-shrink: 0;
+  height: auto;
+  object-fit: contain;
+  // A sombra projetada já vem renderizada dentro do PNG (Cloudinary
+  // e_dropshadow). Não duplicamos com filter: drop-shadow no CSS para
+  // não compor sombras sobrepostas.
+  transition: transform $dur $ease, filter $dur $ease;
 }
 
-@keyframes sparkPulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.95;
-  }
-  50% {
-    transform: scale(1.18);
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .spark {
-    animation: none;
-  }
+.icon,
+.full {
+  // Hooks para refinamentos por variante (atualmente sem estilos próprios).
 }

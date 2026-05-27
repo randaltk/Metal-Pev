@@ -40,7 +40,7 @@ export default function Testimonials() {
             <Reveal key={item.author} index={i}>
               <article className={styles.card}>
                 <Quote size={28} aria-hidden className={styles.icon} />
-                <div className={styles.stars} aria-label="5 de 5 estrelas">
+                <div className={styles.stars} role="img" aria-label="5 de 5 estrelas">
                   {Array.from({ length: 5 }).map((_, j) => (
                     <Star key={j} size={14} fill="currentColor" stroke="none" aria-hidden />
                   ))}

@@ -22,7 +22,10 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: $space-6;
-  min-height: 72px;
+  // O lockup horizontal definitivo tem ~80px de altura; mantemos respiro
+  // confortável (~24px acima/abaixo) sem inflar o header ao ponto de
+  // empurrar o conteúdo para baixo da dobra.
+  min-height: 128px;
 }
 
 .logo {
@@ -31,33 +34,60 @@
   gap: $space-3;
   font-weight: 700;
   color: $color-gray-900;
-}
+  border-radius: $radius-sm;
 
-.logoMark {
-  display: block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 6px 14px rgba($color-primary, 0.32));
-  transition: transform $dur $ease, filter $dur $ease;
+  &:focus-visible {
+    @include focus-ring;
+  }
 }
 
 .logo:hover .logoMark {
   transform: translateY(-1px) rotate(-2deg);
-  filter: drop-shadow(0 8px 18px rgba($color-primary, 0.42));
+  filter: saturate(1.15) brightness(1.04);
 }
 
 .logoText {
   display: flex;
   flex-direction: column;
-  line-height: 1.1;
+  line-height: 1;
+  gap: 5px;
+
   strong {
-    font-size: 1.0625rem;
-    color: $color-gray-900;
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    font-size: 1.625rem;
+    line-height: 1;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+
+    // Efeito "metal escovado": gradient text via background-clip,
+    // emulando o relevo metálico das letras do brasão sem precisar
+    // de fonte display adicional.
+    background: linear-gradient(
+      180deg,
+      #3b4555 0%,
+      #1f2937 38%,
+      #0f141a 62%,
+      #2c3744 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    // Stroke sutil reforça o contorno e evita rasterização borrada
+    // do texto em telas baixas-densidade.
+    -webkit-text-stroke: 0.4px rgba(15, 20, 26, 0.18);
   }
+
   small {
-    font-size: $fs-xs;
-    color: $color-gray-500;
-    font-weight: 500;
+    // Linha vermelha sobre o subtítulo, ecoando o sublinhado vermelho que
+    // separa "METALPEV" de "CALDEIRARIA E SOLDA" dentro do brasão.
+    padding-top: 5px;
+    border-top: 1.5px solid rgba($color-primary, 0.85);
+    font-size: 0.6875rem;
+    line-height: 1.1;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-primary;
+    font-weight: 700;
   }
 }
 
@@ -135,7 +165,10 @@
 
 .drawer {
   position: fixed;
-  top: 64px;
+  // Casado com a altura mínima da barra mobile (.bar @ $bp-lg = 96px)
+  // para evitar uma faixa branca/sobreposição entre o cabeçalho fixo e o
+  // drawer ao abrir o menu.
+  top: 96px;
   right: 0;
   bottom: 0;
   width: min(86vw, 360px);
@@ -222,28 +255,30 @@
   .bar {
     grid-template-columns: 1fr auto;
     gap: $space-3;
-    min-height: 64px;
+    min-height: 96px;
   }
   .burger {
     display: inline-flex;
   }
+  // Aspect ~3.1:1 do lockup: 64px de altura ≈ 198px de largura, ainda
+  // cabe folgado ao lado do burger em telas ≥ 360px.
   .logoMark {
-    width: 36px;
-    height: 36px;
-  }
-  .logoText strong {
-    font-size: 1rem;
+    width: auto;
+    height: 64px;
   }
 }
 
 @media (max-width: $bp-sm) {
   .bar {
-    min-height: 60px;
+    min-height: 80px;
   }
   .drawer {
-    top: 60px;
+    top: 80px;
   }
-  .logoText small {
-    display: none;
+  // 52px de altura ≈ 161px de largura — preserva legibilidade do wordmark
+  // mesmo em viewports estreitos (~360px) sem espremer o botão de menu.
+  .logoMark {
+    width: auto;
+    height: 52px;
   }
 }

@@ -98,11 +98,11 @@
 }
 
 .variant-whatsapp {
-  background-color: $color-whatsapp;
+  background-color: $color-whatsapp-dark;
   color: $color-white;
 
   &:hover {
-    background-color: #1ebe57;
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32);
+    background-color: #0a6432;
+    box-shadow: 0 8px 24px rgba(14, 124, 64, 0.32);
   }
 }

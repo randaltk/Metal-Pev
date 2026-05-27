@@ -45,16 +45,67 @@
   gap: $space-3;
   color: $color-white;
   font-weight: 700;
+  border-radius: $radius-sm;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
 }
 
 .logoMark {
-  display: block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 6px 16px rgba($color-primary, 0.4));
+  // A sombra projetada do brasão já vem renderizada do Cloudinary (e_dropshadow).
+  // Só transicionamos transform/filter — o realce de hover vem por saturação.
+  transition: transform $dur $ease, filter $dur $ease;
 }
 
-.logo strong {
-  font-size: 1.125rem;
+.logo:hover .logoMark {
+  transform: translateY(-1px) rotate(-2deg);
+  filter: saturate(1.15) brightness(1.05);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 5px;
+
+  strong {
+    font-weight: 800;
+    font-size: 1.625rem;
+    line-height: 1;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+
+    // Gradient invertido (claro → médio) — emula brilho metálico sobre fundo escuro.
+    background: linear-gradient(
+      180deg,
+      #f4f6f8 0%,
+      #cbd2da 40%,
+      #94a0b0 70%,
+      #d8dde4 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 0.4px rgba(255, 255, 255, 0.18);
+  }
+
+  small {
+    padding-top: 5px;
+    border-top: 1.5px solid rgba($color-primary-light, 0.9);
+    font-size: 0.6875rem;
+    line-height: 1.1;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-primary-light;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .logoText strong {
+    font-size: 1.375rem;
+  }
 }
 
 .tagline {
