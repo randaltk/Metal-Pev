@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import * as Icons from "lucide-react";
-import { ArrowRight, CheckCircle2, MessageCircle, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, ChevronRight, X } from "lucide-react";
 import Seo from "../seo/Seo";
 import Section from "../ui/Section";
 import Container from "../ui/Container";
@@ -13,14 +14,17 @@ import CTASection from "./CTASection";
 import PageHero from "./PageHero";
 import { SERVICES, SITE, whatsappUrl } from "../../lib/site";
 import { getServiceData } from "../../lib/services-content";
+import { cldUrl } from "../../lib/media";
 import styles from "./ServiceTemplate.module.scss";
 
 export default function ServiceTemplate({ slug }) {
   const service = getServiceData(slug);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   if (!service) return null;
 
   const Icon = Icons[service.icon] || Icons.Wrench;
   const related = SERVICES.filter((s) => s.slug !== slug).slice(0, 3);
+  const gallery = service.gallery || [];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -113,7 +117,7 @@ export default function ServiceTemplate({ slug }) {
                 <div className={styles.media}>
                   <Image
                     src={service.image}
-                    alt={`Imagem ilustrativa do serviço: ${service.title}`}
+                    alt={service.imageAlt || `Imagem ilustrativa do serviço: ${service.title}`}
                     width={720}
                     height={720}
                     sizes="(max-width: 900px) 100vw, 360px"
@@ -121,6 +125,32 @@ export default function ServiceTemplate({ slug }) {
                     priority
                     fetchPriority="high"
                   />
+                </div>
+              ) : null}
+
+              {gallery.length > 0 ? (
+                <div className={styles.galleryBlock}>
+                  <p className={styles.galleryLabel}>Fotos da obra</p>
+                  <div className={styles.thumbs} role="list">
+                    {gallery.map((photo, i) => (
+                      <button
+                        key={photo.publicId}
+                        type="button"
+                        className={styles.thumb}
+                        onClick={() => setLightboxIndex(i)}
+                        aria-label={`Ampliar imagem: ${photo.alt}`}
+                      >
+                        <Image
+                          src={cldUrl(photo, { width: 240, height: 240, crop: "fill", gravity: "auto" })}
+                          alt={photo.alt}
+                          width={240}
+                          height={240}
+                          sizes="120px"
+                          className={styles.thumbImg}
+                        />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               ) : null}
               <Card className={styles.asideCard}>
@@ -167,6 +197,39 @@ export default function ServiceTemplate({ slug }) {
       </Section>
 
       <CTASection />
+
+      {lightboxIndex !== null && gallery[lightboxIndex] ? (
+        <div
+          className={styles.lightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label={gallery[lightboxIndex].alt}
+          onClick={() => setLightboxIndex(null)}
+        >
+          <button
+            type="button"
+            className={styles.lightboxClose}
+            onClick={() => setLightboxIndex(null)}
+            aria-label="Fechar"
+          >
+            <X size={22} aria-hidden />
+          </button>
+          <figure
+            className={styles.lightboxFig}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={cldUrl(gallery[lightboxIndex], { width: 1600 })}
+              alt={gallery[lightboxIndex].alt}
+              width={1600}
+              height={1600}
+              sizes="(max-width: 900px) 100vw, 1100px"
+              className={styles.lightboxImg}
+            />
+            <figcaption>{gallery[lightboxIndex].alt}</figcaption>
+          </figure>
+        </div>
+      ) : null}
     </>
   );
 }

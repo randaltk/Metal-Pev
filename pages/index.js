@@ -5,6 +5,7 @@ import ServicesGrid from "../components/sections/ServicesGrid";
 import AboutSnippet from "../components/sections/AboutSnippet";
 import NR13Highlight from "../components/sections/NR13Highlight";
 import ProcessSteps from "../components/sections/ProcessSteps";
+import ProjectsGallery from "../components/sections/ProjectsGallery";
 import Testimonials from "../components/sections/Testimonials";
 import FAQ from "../components/sections/FAQ";
 import CTASection from "../components/sections/CTASection";
@@ -25,6 +26,7 @@ export default function Home() {
       <AboutSnippet />
       <NR13Highlight />
       <ProcessSteps />
+      <ProjectsGallery />
       <Testimonials />
       <FAQ />
       <CTASection />

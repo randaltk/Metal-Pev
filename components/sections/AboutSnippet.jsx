@@ -5,6 +5,7 @@ import Section from "../ui/Section";
 import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
 import Badge from "../ui/Badge";
+import { TEAM_IN_ACTION, cldUrl } from "../../lib/media";
 import styles from "./AboutSnippet.module.scss";
 
 const POINTS = [
@@ -22,8 +23,8 @@ export default function AboutSnippet() {
           <Reveal className={styles.media}>
             <div className={styles.imageWrap}>
               <Image
-                src="https://res.cloudinary.com/aguadeira/image/upload/v1621735210/public/sectionsobre_1_kz7ogq_1_d6wuw0.png"
-                alt="Equipe MetalPev realizando inspeção em equipamento industrial"
+                src={cldUrl(TEAM_IN_ACTION, { width: 900, height: 720, crop: "fill", gravity: "auto" })}
+                alt={TEAM_IN_ACTION.alt}
                 width={720}
                 height={576}
                 sizes="(max-width: 768px) 100vw, 50vw"

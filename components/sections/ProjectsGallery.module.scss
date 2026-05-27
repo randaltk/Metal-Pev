@@ -1,0 +1,246 @@
+@use "../../styles/tokens" as *;
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto $space-12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+}
+
+.title {
+  font-size: $fs-h1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.description {
+  font-size: 1.0625rem;
+  color: $color-gray-500;
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-6;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-4;
+  }
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cell {
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 1px solid $color-gray-100;
+  border-radius: $radius-md;
+  background: $color-white;
+  text-align: left;
+  cursor: zoom-in;
+  overflow: hidden;
+  transition: transform $dur $ease, border-color $dur $ease, box-shadow $dur $ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgba($color-primary, 0.35);
+    box-shadow: $shadow-md;
+
+    .thumbImg {
+      transform: scale(1.04);
+    }
+    .thumbZoom {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: $color-gray-50;
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $dur-slow $ease;
+}
+
+.thumbZoom {
+  position: absolute;
+  top: $space-3;
+  right: $space-3;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-pill;
+  background: rgba($color-dark, 0.78);
+  color: $color-white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translate(4px, -4px);
+  transition: opacity $dur $ease, transform $dur $ease;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4 $space-6 $space-6;
+}
+
+.tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: $fs-xs;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $color-accent-dark;
+  background: rgba($color-accent, 0.1);
+  padding: 2px 10px;
+  border-radius: $radius-pill;
+}
+
+.cardTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: $color-gray-900;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: $fs-small;
+  color: $color-gray-500;
+  line-height: $lh-normal;
+  margin: 0;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 20, 26, 0.88);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-6;
+  animation: lbIn 0.2s $ease both;
+}
+
+@keyframes lbIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.navBtn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-pill;
+  border: 0;
+  background: rgba(255, 255, 255, 0.12);
+  color: $color-white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background $dur $ease, transform $dur $ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: scale(1.05);
+  }
+}
+
+.navClose {
+  top: $space-4;
+  right: $space-4;
+}
+
+.navPrev {
+  left: $space-4;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+}
+
+.navNext {
+  right: $space-4;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+}
+
+.figure {
+  margin: 0;
+  max-width: min(1100px, 95vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  align-items: center;
+
+  figcaption {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    max-width: 60ch;
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    font-size: $fs-small;
+
+    strong {
+      color: $color-white;
+      font-size: 1.0625rem;
+    }
+
+    span {
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
+}
+
+.figureImg {
+  max-width: 100%;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  border-radius: $radius-md;
+  object-fit: contain;
+  background: $color-dark;
+}

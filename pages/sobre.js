@@ -8,7 +8,15 @@ import Badge from "../components/ui/Badge";
 import Card from "../components/ui/Card";
 import PageHero from "../components/sections/PageHero";
 import CTASection from "../components/sections/CTASection";
+import { PHOTOS, cldUrl } from "../lib/media";
 import styles from "../styles/pages/Sobre.module.scss";
+
+const SOBRE_GALLERY = [
+  PHOTOS.stairsInoxTeam,
+  PHOTOS.platformYellowGuardrail,
+  PHOTOS.pipingFlanges,
+  PHOTOS.tanksVertical,
+];
 
 const PILLARS = [
   {
@@ -125,6 +133,35 @@ export default function SobrePage() {
                 </Reveal>
               );
             })}
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="dark">
+        <Container>
+          <div className={styles.header}>
+            <Badge tone="accent">Equipe em ação</Badge>
+            <h2>Caldeiraria de verdade, registrada em planta.</h2>
+            <p className={styles.headerLead}>
+              Algumas das obras e equipamentos que entregamos. Da fabricação em oficina à montagem em planta, com
+              técnicos qualificados e foco em conformidade.
+            </p>
+          </div>
+          <div className={styles.galleryGrid}>
+            {SOBRE_GALLERY.map((photo, i) => (
+              <Reveal key={photo.publicId} index={i % 4} className={styles.galleryCell}>
+                <figure className={styles.galleryFig}>
+                  <Image
+                    src={cldUrl(photo, { width: 800, height: 800, crop: "fill", gravity: "auto" })}
+                    alt={photo.alt}
+                    width={800}
+                    height={800}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className={styles.galleryImg}
+                  />
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </Section>
