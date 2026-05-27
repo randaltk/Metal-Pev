@@ -1,15 +1,16 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { SITE } from "../lib/site";
 
-// Favicon = brasão isolado do lockup oficial (engrenagem + "M" + maçarico).
-// Mantém o mesmo asset Cloudinary usado pelo <LogoMark variant="icon" />
-// (components/brand/LogoMark.jsx), apenas reescalado para cada tamanho que o
-// navegador pode precisar (toolbar, apple-touch, PWA). Se o arquivo de origem
-// mudar, alterar nos dois lugares.
+// Favicon = brasão isolado do lockup oficial (engrenagem vermelha + "M"
+// metálico prata + maçarico em chamas). Mantém o mesmo asset Cloudinary
+// usado pelo <LogoMark variant="icon" /> (components/brand/LogoMark.jsx),
+// apenas reescalado para cada tamanho que o navegador pode precisar
+// (toolbar, apple-touch, PWA). Se o arquivo de origem mudar, alterar nos
+// dois lugares.
 //   e_background_removal         alpha real (sem fundo branco vazando na
 //                                toolbar escura do navegador / dock iOS).
-//   e_trim:10                    remove ~40% de padding transparente da arte
-//                                original; crítico no favicon 16/32px, onde
+//   e_trim:10                    remove o padding transparente em volta do
+//                                brasão; crítico no favicon 16/32px, onde
 //                                sem trim o brasão ficaria minúsculo dentro
 //                                do quadrado e ilegível na toolbar.
 //   c_pad,b_transparent,ar_1:1   garante aspect 1:1 após o trim — favicon
@@ -20,7 +21,7 @@ import { SITE } from "../lib/site";
 //                                ampla com favicons).
 const FAVICON_BASE = "https://res.cloudinary.com/aguadeira/image/upload";
 const FAVICON_PATH =
-  "v1779822551/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A4a09baf91e9e49ec9cffd999af15674c2_a8fiu5.png";
+  "v1779904988/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/metalpev_brasao_isolado_lapstb.png";
 const FAVICON_TRANSFORMS =
   "e_background_removal/e_trim:10/c_pad,b_transparent,ar_1:1/f_png";
 

@@ -260,7 +260,7 @@
   .burger {
     display: inline-flex;
   }
-  // Aspect ~3.1:1 do lockup: 64px de altura ≈ 198px de largura, ainda
+  // Aspect ~2.6:1 do lockup novo: 64px de altura ≈ 167px de largura, ainda
   // cabe folgado ao lado do burger em telas ≥ 360px.
   .logoMark {
     width: auto;
@@ -275,7 +275,7 @@
   .drawer {
     top: 80px;
   }
-  // 52px de altura ≈ 161px de largura — preserva legibilidade do wordmark
+  // 52px de altura ≈ 135px de largura — preserva legibilidade do wordmark
   // mesmo em viewports estreitos (~360px) sem espremer o botão de menu.
   .logoMark {
     width: auto;

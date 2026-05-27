@@ -2,77 +2,88 @@ import Image from "next/image";
 import styles from "./LogoMark.module.scss";
 
 // ---------------------------------------------------------------------------
-// Asset oficial do logo MetalPev hospedado no Cloudinary.
-// Lockup horizontal definitivo (brasão + wordmark "METALPEV CALDEIRARIA E
-// SOLDA" integrados na mesma arte), 1264×848. Já vem nas cores novas
-// (cinza grafite + vermelho carmim + azul aço) e ocupa todo o frame —
-// dispensa o padding/trim que precisávamos nas versões só-ícone.
+// Assets oficiais do logo MetalPev (versão "metal escovado" prata + vermelho)
+// hospedados no Cloudinary. O cliente entregou dois arquivos separados que
+// usamos de forma direta — sem precisar recortar o brasão a partir de um
+// lockup vertical como fazíamos antes:
 //
-// Outras versões já testadas, prontas para reverter trocando a constante:
-//   • Lockup horizontal anterior (brasão metálico, paleta antiga):
-//       PATH = "v1779822590/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A068c027963204a309b8481b60d07b88ce_kifwut.avif"
-//       TRANSFORMS = "e_background_removal/e_trim:10/c_pad,b_transparent,ar_1:1/f_png"
-//   • Ícone flat colorido (vermelho + cyan, com dropshadow nativo):
-//       PATH = "v1779822551/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A4a09baf91e9e49ec9cffd999af15674c2_a8fiu5.avif"
-//       TRANSFORMS = "e_background_removal/e_dropshadow:azimuth_220;elevation_60;spread_20/f_png"
-//   • Brasão metálico original + wordmark embutido (JPG):
-//       PATH = "v1779819223/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/Design_sem_nome_1.jpg_ejvx8t.jpg"
-//       TRANSFORMS = "e_background_removal/f_png"
+//   • variant="full": lockup horizontal completo (brasão prata/vermelho à
+//     esquerda + wordmark "METALPEV / CALDEIRARIA E SOLDA" à direita). É o
+//     que aparece no header.
+//   • variant="icon" (default): brasão isolado em aspect 1:1 (engrenagem
+//     vermelha + "M" prata + maçarico). Usado no footer e como favicon.
+//
+// Versões anteriores já testadas, prontas para reverter trocando as
+// constantes (mantidas como referência histórica):
+//   • Lockup horizontal anterior (mesma arte metálica, wordmark com
+//     "METALPEV" em prata escovado — substituído pela tipografia
+//     refinada/geométrica atual a pedido do cliente):
+//       PATH        = "v1779904984/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/metalpev_logo_completo_ol80tc.png"
+//       TRANSFORMS  = "e_background_removal/e_trim:10/f_png"
+//       SIZE        = 1458×558
+//   • Lockup vertical único (brasão metálico no topo, wordmark embaixo),
+//     do qual recortávamos o brasão via c_crop,g_north,h_0.65,w_1.0:
+//       PATH        = "v1779822564/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/backgroundmetalpev_je2p4x.png"
+//       ICON_TX     = "c_crop,g_north,h_0.65,w_1.0/e_background_removal/e_trim:10/c_pad,b_transparent,ar_1:1/f_png"
+//       FULL_TX     = "e_background_removal/e_trim:10/f_png"
+//   • Lockup horizontal flat (brasão azul-aço, paleta antiga):
+//       PATH        = "v1779824047/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A55e35d41adcc45a893e83a3d1ff2efcdg_thlbwx.avif"
+//       TRANSFORMS  = "e_background_removal/e_trim:10/f_png"
 // ---------------------------------------------------------------------------
 const CLOUDINARY_BASE = "https://res.cloudinary.com/aguadeira/image/upload";
 
-// Lockup horizontal (brasão + wordmark "METALPEV CALDEIRARIA E SOLDA"),
-// usado no header e fundos claros.
+// Lockup horizontal completo refinado (1536×1024 no Cloudinary). Brasão
+// metálico prata + vermelho à esquerda, wordmark "METALPEV / CALDEIRARIA E
+// SOLDA" à direita em tipografia geométrica/sans-serif (METALPEV em
+// grafite, subtítulo em vermelho carmim). Usado no header.
 const LOCKUP_PUBLIC_PATH =
-  "v1779824047/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A55e35d41adcc45a893e83a3d1ff2efcdg_thlbwx.avif";
+  "v1779905869/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/metalpev_logo_refinado_d3fde6.png";
 
-// Pipeline do lockup completo (header / fundos claros):
-//   e_background_removal   remove o fundo branco da arte original via AI,
-//                          deixando o lockup com transparência real.
-//   e_trim:10              corta qualquer borda transparente residual,
+// Pipeline do lockup completo (header):
+//   e_background_removal   garante alpha real mesmo se o asset original
+//                          vier com qualquer fundo branco residual (o
+//                          cliente entrega PNG mas algumas exportações
+//                          mantêm um halo branco fino em volta da arte).
+//   e_trim:10              corta padding transparente em volta da arte,
 //                          garantindo que o lockup encoste nos limites
 //                          da imagem e não "encolha" dentro de padding.
 //   f_png                  transparência preservada; next/image reencoda
 //                          para WebP/AVIF na entrega.
-const FULL_TRANSFORMS = "e_background_removal/e_trim:10/f_png";
+const LOCKUP_TRANSFORMS = "e_background_removal/e_trim:10/f_png";
+// Dimensões reais do PNG após o pipeline FULL (verificadas via fl_getinfo:
+// 1536×1024 → 1416×507 depois do bg_removal + trim, aspect ~2.79:1).
+// Declarar o tamanho pós-pipeline alinha o aspect reservado pelo
+// next/image ao que de fato chega no navegador — caso contrário o logo
+// "encolheria" porque o next/image reservaria um retângulo de 1536×1024
+// mas receberia 1416×507.
+const LOCKUP_WIDTH = 1416;
+const LOCKUP_HEIGHT = 507;
 
-// Dimensões reais do PNG entregue pelo Cloudinary APÓS o pipeline FULL
-// (consultadas via fl_getinfo: input 1264×848 → output 1115×360 depois do
-// background_removal + trim). O arquivo original tem ~488px de padding
-// transparente vertical; declarar as dimensões pós-trim alinha o aspect
-// reservado pelo next/image ao que de fato chega no navegador e mantém o
-// lockup ocupando toda a sua caixa — caso contrário o logo "encolhe"
-// porque o next/image reserva um retângulo de 1264×848 mas recebe 1115×360.
-const LOCKUP_WIDTH = 1115;
-const LOCKUP_HEIGHT = 360;
+// Brasão isolado em aspect 1:1 (1248×1248 no Cloudinary). Usado no footer
+// e como base do favicon.
+const ICON_PUBLIC_PATH =
+  "v1779904988/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/metalpev_brasao_isolado_lapstb.png";
 
-// Brasão isolado (só ícone, sem wordmark) — versão flat colorida entregue
-// pelo cliente em 1024×1024 (engrenagem vermelha + "M" azul aço + maçarico).
-// Usado no footer, favicon e em qualquer lugar que precise do ícone em
-// aspect 1:1.
+// Pipeline do brasão isolado:
 //   e_background_removal         alpha real (sem fundo branco vazando sobre
 //                                fundos escuros do footer ou toolbar).
 //   e_trim:10                    remove o padding transparente em volta do
-//                                brasão (a arte original ocupa só ~60% do
-//                                frame de 1024×1024; sem trim o ícone ficava
-//                                visualmente pequeno dentro da sua caixa).
+//                                brasão; sem isso o ícone fica pequeno
+//                                dentro da sua caixa em tamanhos menores.
 //   c_pad,b_transparent,ar_1:1   garante aspect 1:1 após o trim, evitando
 //                                que o ícone fique levemente retangular se
 //                                a arte não for perfeitamente quadrada.
 //   f_png                        preserva alpha; next/image reencoda para
 //                                WebP/AVIF na entrega.
-const ICON_PUBLIC_PATH =
-  "v1779822551/metalpev/WhatsApp_Unknown_2026-05-26_at_15.08.27_aoij0z/A4a09baf91e9e49ec9cffd999af15674c2_a8fiu5.png";
 const ICON_TRANSFORMS =
   "e_background_removal/e_trim:10/c_pad,b_transparent,ar_1:1/f_png";
-// Dimensões reais do PNG após o pipeline ICON (consultadas via fl_getinfo:
-// 1024×1024 → 604×604 depois do trim). Declarar o tamanho pós-trim alinha o
-// aspect reservado pelo next/image ao que de fato chega no navegador.
-const ICON_SIZE = 604;
+// Dimensões reais do PNG após o pipeline ICON (verificadas via fl_getinfo:
+// 1248×1248 → 1043×1043 depois do bg_removal + trim + pad ar 1:1).
+const ICON_SIZE = 1043;
 
 const VARIANTS = {
   full: {
-    src: `${CLOUDINARY_BASE}/${FULL_TRANSFORMS}/${LOCKUP_PUBLIC_PATH}`,
+    src: `${CLOUDINARY_BASE}/${LOCKUP_TRANSFORMS}/${LOCKUP_PUBLIC_PATH}`,
     width: LOCKUP_WIDTH,
     height: LOCKUP_HEIGHT,
   },
@@ -85,11 +96,11 @@ const VARIANTS = {
 
 /**
  * Logo institucional MetalPev — Caldeiraria & Solda.
- * Renderiza o lockup horizontal oficial (brasão + wordmark) hospedado no
- * Cloudinary, com fundo removido via AI.
+ * Renderiza o lockup horizontal oficial (brasão + wordmark) ou o brasão
+ * isolado, hospedados no Cloudinary com fundo removido via AI.
  *
  * @param {number} size  Altura em px; a largura preserva o aspect real da variante (horizontal para "full", 1:1 para "icon").
- * @param {"icon"|"full"} variant  "full" entrega o lockup horizontal completo (brasão + wordmark); "icon" entrega só o brasão recortado em aspect 1:1 (use em fundos escuros).
+ * @param {"icon"|"full"} variant  "full" entrega o lockup horizontal completo (brasão + wordmark); "icon" entrega só o brasão recortado em aspect 1:1 (use em fundos escuros e em favicon).
  * @param {string} className
  * @param {string} title  Quando informado, define alt acessível para a imagem.
  * @param {boolean} priority  Encaminha para next/image (use no logo do header).
@@ -106,6 +117,15 @@ export default function LogoMark({
   const height = size;
   const width = Math.round(size * aspect);
 
+  // O lockup completo tem detalhes finos (texto "CALDEIRARIA E SOLDA"
+  // pequeno, hachuras metálicas) que ficam borrados no re-encoding default
+  // do next/image (q_75). Pedimos q_90 — único valor que dá nitidez sem
+  // inflar muito o peso do logo em PNG/WebP. Já o `sizes` é informado
+  // como o dobro do width "nominal" para garantir que o browser sempre
+  // escolha um slot de srcset 2x maior do que o tamanho display — isso
+  // alimenta retina (DPR 2-3) em mobile, onde o problema aparecia.
+  const sizesAttr = `${width * 2}px`;
+
   return (
     <Image
       src={v.src}
@@ -113,7 +133,8 @@ export default function LogoMark({
       width={width}
       height={height}
       priority={priority}
-      sizes={`${width}px`}
+      quality={90}
+      sizes={sizesAttr}
       className={`${styles.logo} ${styles[variant]} ${className || ""}`.trim()}
     />
   );
